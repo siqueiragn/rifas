@@ -13,7 +13,4 @@ $(document).ready(function() {
 
     });
 
-    $('.numero-sorteio').each( function(i, e) {
-        console.log(window.innerHeight);
-    });
 });

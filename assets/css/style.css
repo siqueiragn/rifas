@@ -1965,17 +1965,21 @@ ol {
 	background-color: #dc3545 !important;
 }
 
+.reservado {
+	background-color: #ffc107 !important;
+}
+
 .disponivel{
 	background-color: #E7ECEF;
 }
 
 .numero-sorteio {
-	width: 90px;
-	height: 90px;
+	width: 60px;
+	height: 60px;
 	border-radius: 90px;
-	padding-top: 30px;
+	padding-top: 15px;
 	text-align: center;
-	font-size: 150%;
+	font-size: 140%;
 	display: inline-block;
 }
 
