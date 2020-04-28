@@ -27,4 +27,11 @@ $(document).ready(function() {
             $('#numeros').val(numeros.toString())
     });
 
+    CKEDITOR.replace( 'descricao' );
 });
+
+function clonar() {
+    $elemento = $('#modelo').clone();
+    $($($elemento).children()).children().val(null);
+    $('.lista-arquivos').append($elemento);
+}

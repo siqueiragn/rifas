@@ -8,10 +8,7 @@ class Home extends My_Controller {
 	{
 
         $this->load->model('rifa');
-
         $data['objetos'] = $this->rifa->getByID( 1 )->result();
-
-
 
         $this->load->view('estruturas/menu');
 		$this->load->view($this->router->class . '/home', $data);

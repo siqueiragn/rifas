@@ -28,7 +28,7 @@
             <div class="row pt-1">
                 <div class="col-lg-12 ">
                     <div class="small text-white text-center">
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados | Dev by <a href="https://github.com/siqueiragn" target="_blank">@siqueiragn</a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos os direitos reservados
                     </div>
                 </div>
             </div>

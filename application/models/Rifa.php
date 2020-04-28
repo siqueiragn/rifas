@@ -12,26 +12,10 @@ class Rifa extends CI_Model  {
 
     }
 
-    function getByIDView( $codigo, $user ) {
+
+    function getAll() {
 
         return $this->db->select('*')
-                        ->where("ucpOwn = $user and ID = $codigo")
-                        ->get($this->table)->result();
-
-    }
-
-    function getByCharacterID( $codigo ) {
-
-        return $this->db->select('*')
-                        ->where("ID = $codigo")
-                        ->get($this->table);
-
-    }
-
-    function getByIDToUser( $codigo, $username ) {
-
-        return $this->db->select('*')
-                        ->where("ucpOwn = $codigo")
                         ->get($this->table);
 
     }

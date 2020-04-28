@@ -19,8 +19,8 @@ class Rifas extends My_Controller {
 
         $centenas = $this->centena->getByItemID( $this->uri->segment(3) );
 
-        $data['reservados'] = null;
-        $data['comprados'] = null;
+        $data['reservados'] = array();
+        $data['comprados'] = array();
 
         if ( $centenas->num_rows() > 0 ) {
 
@@ -53,5 +53,30 @@ class Rifas extends My_Controller {
 	    if ( $this->input->post() ) {
 	        echo pre($this->input->post()); exit;
         }
+    }
+
+    public function criar() {
+
+	    if ( $this->nativesession->get('autenticado') ) {
+            $this->load->view('estruturas/menu_adm');
+            $this->load->view($this->router->class . '/criar');
+            $this->load->view('estruturas/footer_adm');
+        } else {
+	        redirect();
+        }
+
+
+    }
+
+    public function db_criar() {
+
+	    if ( $this->nativesession->get('autenticado') ) {
+            if ($this->input->post()) {
+                echo pre($this->input->post());
+            }
+        } else {
+	        redirect();
+        }
+
     }
 }
