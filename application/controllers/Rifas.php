@@ -28,10 +28,10 @@ class Rifas extends My_Controller {
 
                 if ( $centena->status == 1) {
                     $data['reservados'][] = $centena->numero;
-                    $data['textos'][$centena->numero] = $centena->nome;
+                    $data['textos'][$centena->numero] = 'Reservado por ' . $centena->nome;
                 } else if ( $centena->status == 2) {
                     $data['comprados'][] = $centena->numero;
-                    $data['textos'][$centena->numero] = $centena->nome;
+                    $data['textos'][$centena->numero] = 'Comprado por ' . $centena->nome;
 
                 } else {
                      continue;
@@ -42,10 +42,16 @@ class Rifas extends My_Controller {
         }
 
 
-
-
         $this->load->view('estruturas/menu');
         $this->load->view($this->router->class . '/consultar', $data);
         $this->load->view('estruturas/footer');
+    }
+
+    public function metodoPagamento() {
+
+
+	    if ( $this->input->post() ) {
+	        echo pre($this->input->post()); exit;
+        }
     }
 }

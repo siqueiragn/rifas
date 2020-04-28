@@ -40,6 +40,7 @@
 <!-- Js Plugins -->
 <script src="<?php echo site_url('/assets/js/jquery-3.3.1.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/bootstrap.min.js');?>"></script>
+<script src="<?php echo site_url('/assets/js/bootstrap.bundle.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/jquery.magnific-popup.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/jquery-ui.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/jquery.nice-select.min.js');?>"></script>
@@ -49,6 +50,8 @@
 <script src="<?php echo site_url('/assets/js/slides.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/custom.js');?>"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="<?php echo site_url('/assets/js/mascaras.js');?>"></script>
+<script src="<?php echo site_url('/assets/js/load-mascaras.js');?>"></script>
 </body>
 
 </html>

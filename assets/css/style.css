@@ -1986,3 +1986,18 @@ ol {
 .sorteio {
 	display: inline-flex;
 }
+
+.finalizar-compra{
+	padding: 20px;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.fixed-right-bottom{
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	z-index: 1030;
+}
