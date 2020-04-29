@@ -20,7 +20,10 @@
                         <?php foreach ($objetos as $objeto) { ?>
 
                         <tr>
-                            <td><a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="primary-btn btn-sm sm-padding">Editar</a></td>
+                            <td>
+                                <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="btn-success btn-sm sm-padding">Consultar</a>
+                                <a href="<?php echo site_url('/rifas/editar/' . $objeto->id);?>" class="btn-danger btn-sm sm-padding">Editar</a>
+                            </td>
                             <td><?php echo $objeto->nome;?></td>
                             <td><?php echo $objeto->sorteio;?></td>
                         </tr>

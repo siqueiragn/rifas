@@ -11,8 +11,8 @@ class Painel extends My_Controller {
 
 	public function login() {
 
-	    if ( false ) {
-	        redirect( $this->router->class . '/listar');
+	    if ( $this->nativesession->get('autenticado') ) {
+	        redirect( $this->router->class . '/home');
         } else {
 
             $this->load->view('estruturas/menu');
@@ -38,8 +38,7 @@ class Painel extends My_Controller {
             } else {
                 redirect( $this->router->class . '/login?login=error');
             }
-            echo pre($this->input->post()); exit;
-        }
+         }
     }
 
     public function home() {

@@ -12,7 +12,30 @@
                         <p>
                             <?php echo $objeto->descricao; ?>
                         </p>
+
+                        <div class="section-title">
+                            <h5>Valor do número R$<?php echo $objeto->valor;?></h5>
+                            <h5>Sorteio ocorre dia <?php echo $objeto->sorteio;?></h5>
+                        </div>
                     </div>
+                    <?php
+
+                    if ( $objeto->cliente_ganhador != '') {
+                        $marcar = false;
+                        $CI =& get_instance();
+                        $CI->load->model('cliente');
+
+                        $ganhador = $CI->cliente->getByIdGanhador($objeto->cliente_ganhador)->row();
+                        ?>
+
+                        <div class="about-text">
+                            <div class="section-title">
+                                <h5>O sorteio foi vencido por <?php echo $ganhador->nome;?> <br>Número Sorteado: <?php echo $ganhador->numero;?></h5>
+                            </div>
+                        </div>
+                    <?php } else {
+                        $marcar = true;
+                    } ?>
                 </div>
                 <div class="col-lg-6">
                     <div class=" ">
@@ -28,7 +51,7 @@
                                 <!-- Full-width images with number and caption text -->
                                 <div class="mySlides ">
                                     <div class="numbertext"><?php echo $indice+1;?> / <?php echo $imagens->num_rows();?></div>
-                                    <img src="<?php echo site_url("assets/img/{$objeto->id}/{$imagem->caminho}");?>" style="width:100%">
+                                    <img src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" style="width:100%">
                                     <div class="text"></div>
                                 </div>
 
@@ -58,6 +81,7 @@
             <div class="row">
                 <div class="offset-lg-4 offset-xs-4 col-lg-4 col-xs-4 text-center">
 
+                    <span class="badge legenda-texto badge-dark">Todos</span>
                     <span class="badge legenda-texto badge-info">Disponível</span>
                     <span class="badge legenda-texto badge-danger">Comprado</span>
                     <span class="badge legenda-texto badge-warning">Reservado</span>
@@ -72,11 +96,11 @@
                     <?php $cont = 0; for( $i = 0; $i < 1000; $i++) { ?>
 
                         <?php if ( in_array($i, $comprados ) ) {
-                            echo "<div data-toggle='popover' data-trigger='hover' data-content='{$textos[$i]}' class='numero-sorteio noselect comprado' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";
+                            echo "<div data-toggle='popover' data-trigger='hover' data-content='{$textos[$i]}' class='" . ($marcar ? "numero-sorteio" : "numero-sorteado") . " noselect comprado' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";
                         } else if ( in_array($i, $reservados) )  {
-                            echo "<div data-toggle='popover' data-trigger='hover' data-content='{$textos[$i]}' class='numero-sorteio noselect reservado' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";
+                            echo "<div data-toggle='popover' data-trigger='hover' data-content='{$textos[$i]}' class='" . ($marcar ? "numero-sorteio" : "numero-sorteado") . " noselect reservado' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";
                         } else {
-                            echo "<div class='numero-sorteio noselect disponivel' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";
+                            echo "<div class='" . ($marcar ? "numero-sorteio" : "numero-sorteado") . " noselect disponivel' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";
                         }
                         ?>
                     <?php } ?>
@@ -84,6 +108,7 @@
             </div>
     </section>
 
+    <?php if ($marcar ) { ?>
     <div class="finalizar-compra hidden fixed-right-bottom text-right">
 
         <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#modal_compra">Finalizar Compra</button>
@@ -131,3 +156,5 @@
         </div>
     </div>
     </form>
+
+    <?php } ?>

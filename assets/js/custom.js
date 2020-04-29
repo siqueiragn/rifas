@@ -27,8 +27,38 @@ $(document).ready(function() {
             $('#numeros').val(numeros.toString())
     });
 
+    $('.legenda-texto').on('click', function (e) {
+
+        if ( $(e.target).hasClass('badge-info')) {
+
+            $('.disponivel').removeClass('hidden');
+            $('.comprado').addClass('hidden');
+            $('.reservado').addClass('hidden');
+
+        } else if ( $(e.target).hasClass('badge-danger') ) {
+
+            $('.disponivel').addClass('hidden');
+            $('.comprado').removeClass('hidden');
+            $('.reservado').addClass('hidden');
+
+        } else if ( $(e.target).hasClass('badge-warning') ) {
+
+            $('.disponivel').addClass('hidden');
+            $('.comprado').addClass('hidden');
+            $('.reservado').removeClass('hidden');
+
+        } else {
+
+            $('.disponivel').removeClass('hidden');
+            $('.comprado').removeClass('hidden');
+            $('.reservado').removeClass('hidden');
+
+        }
+
+    });
+
     CKEDITOR.replace( 'descricao' );
-});
+ });
 
 function clonar() {
     $elemento = $('#modelo').clone();

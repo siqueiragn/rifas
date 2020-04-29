@@ -4,20 +4,20 @@
     <section class="homepage-about spad section">
         <div class="container">
             <div class="row">
-                <form class="form-horizontal" action="<?php echo site_url($this->router->class . '/db_criar');?>" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="<?php echo site_url($this->router->class . '/db_editar?id=' . $objeto->id);?>" method="POST" enctype="multipart/form-data">
 
                     <div class="col-lg-6 col-xs-10 offset-lg-3 offset-xs-1">
                         <div class="form-group">
                             <label for="">Nome do item a ser rifado</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control input-sm" tabindex="0" name="nome" id="nome">
+                            <input type="text" class="form-control input-sm" tabindex="0" name="nome" id="nome" value="<?php echo $objeto->nome;?>">
                         </div>
                         <div class="form-group">
                             <label for="">Descrição</label>
                         </div>
                         <div class="form-group">
-                            <textarea name="descricao" id="descricao"></textarea>
+                            <textarea name="descricao" id="descricao"><?php echo $objeto->descricao;?></textarea>
                         </div>
                         <div class="form-group" style="display: inline-flex;">
                             <label class="col-lg-4 col-xs-6" style="padding: 0;" for="">Data do Sorteio</label>
@@ -25,10 +25,10 @@
                         </div>
                         <div class="form-group" style="display: inline-flex;">
                             <div class="col-lg-4 col-xs-6" style="padding: 0;">
-                                <input type="text" class="form-control mascara-data datepicker input-sm" tabindex="0" name="sorteio" id="sorteio">
+                                <input type="text" class="form-control mascara-data datepicker input-sm" tabindex="0" name="sorteio" id="sorteio" value="<?php echo $objeto->sorteio;?>">
                             </div>
                             <div class="col-lg-4 offset-lg-2 col-xs-6" style="padding: 0;">
-                                <input type="text" class="form-control mascara-percentual input-sm" tabindex="0" name="valor" id="valor">
+                                <input type="text" class="form-control mascara-percentual input-sm" tabindex="0" name="valor" id="valor" value="<?php echo $objeto->valor;?>">
                             </div>
                         </div>
 
@@ -39,6 +39,13 @@
                         </div>
 
                         <hr>
+
+                        <?php
+                        foreach ($imagens->result() as $indice=>$imagem) { ?>
+                            <!-- Full-width images with number and caption text -->
+                             <img width="200" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" style="width:100%">
+
+                        <?php } ?>
 
                         <div class="lista-arquivos">
                             <div class="form-group" id="modelo">

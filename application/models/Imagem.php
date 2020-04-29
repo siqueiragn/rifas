@@ -19,6 +19,25 @@ class Imagem extends CI_Model  {
                         ->get($this->table);
 
     }
+    function getFirst( $codigo ) {
+
+        return $this->db->select('*')
+                        ->where("item_rifado = $codigo")
+                        ->order_by('id ASC')
+                        ->get($this->table)->row();
+
+    }
+
+    function salvar( $extensao, $item_rifado ) {
+
+        $data = array(
+            'extensao'     => $extensao,
+            'item_rifado'  => $item_rifado,
+        );
+
+        $this->db->insert($this->table, $data);
+
+    }
 
 
 }

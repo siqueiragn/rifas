@@ -1,8 +1,8 @@
 <?php
 
-class Rifa extends CI_Model  {
+class Cliente extends CI_Model  {
 
-    var $table 	    = 'item_rifado';
+    var $table 	    = 'clientes';
 
     function getByID( $codigo ) {
 
@@ -10,6 +10,11 @@ class Rifa extends CI_Model  {
                         ->where("id = $codigo")
                         ->get($this->table);
 
+    }
+
+    function getByIdGanhador( $codigo ) {
+
+        return $this->db->query("SELECT a.nome, a.telefone, b.numero FROM CLIENTES A INNER JOIN CENTENAS B ON A.ID = B.CLIENTE WHERE A.ID = $codigo");
     }
 
 

@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li><a href="<?php echo site_url();?>">Home</a></li>
-                    <li><a href="<?php echo site_url();?>">Sorteios</a></li>
+                    <li><a href="<?php echo site_url('rifas/listar');?>">Sorteios</a></li>
                     <li><a href="<?php echo site_url();?>">Formas Pagamento</a></li>
                     <li><a href="<?php echo site_url();?>">Contato</a></li>
                 </ul>

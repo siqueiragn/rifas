@@ -29,7 +29,7 @@
                             <!-- Full-width images with number and caption text -->
                             <div class="mySlides ">
                                 <div class="numbertext"><?php echo $indice+1;?> / <?php echo $imagens->num_rows();?></div>
-                                <img src="<?php echo site_url("assets/img/{$objeto->id}/{$imagem->caminho}");?>" style="width:100%">
+                                <img src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" style="width:100%">
                                 <div class="text"></div>
                             </div>
 
