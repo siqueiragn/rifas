@@ -17,6 +17,11 @@ class Cliente extends CI_Model  {
         return $this->db->query("SELECT a.nome, a.telefone, b.numero FROM CLIENTES A INNER JOIN CENTENAS B ON A.ID = B.CLIENTE WHERE A.ID = $codigo");
     }
 
+    function verificarExistente( $nome, $telefone ) {
+
+        return $this->db->query("SELECT * FROM CLIENTES WHERE LOWER(nome) = LOWER('$nome') and telefone = '$telefone'");
+    }
+
 
     function getAll() {
 
@@ -25,13 +30,11 @@ class Cliente extends CI_Model  {
 
     }
 
-    function salvar( $nome, $descricao, $sorteio, $valor ) {
+    function salvar( $nome, $telefone ) {
 
         $data = array(
             'nome'             => $nome,
-            'descricao'        => $descricao,
-            'sorteio'          => $sorteio,
-            'valor'            => $valor,
+            'telefone'         => $telefone,
         );
 
         $this->db->insert($this->table, $data);

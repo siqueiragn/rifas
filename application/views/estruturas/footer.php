@@ -17,7 +17,7 @@
                 <div class="footer-item">
                     <h5>Contato</h5>
                     <ul>
-                        <li><img src="img/phone.png" alt="">+55 (XX)XXXXX-XXXX</li>
+                        <li><img src="<?php echo $this->dados_globais['caminho_externo_img'] . 'phone.png';?>" alt="">+55 (XX)XXXXX-XXXX</li>
                     </ul>
                 </div>
             </div>
@@ -52,6 +52,8 @@
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="<?php echo site_url('/assets/js/mascaras.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/load-mascaras.js');?>"></script>
+<script src="https://use.fontawesome.com/2629945dd9.js"></script>
+
 </body>
 
 </html>

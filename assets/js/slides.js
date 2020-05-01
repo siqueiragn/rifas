@@ -12,7 +12,7 @@ function plusSlides(n) {
     showSlides(slideIndex += n);
     clearInterval(myTimer);
     slideAtual = slideIndex;
-    myTimer = setInterval(myFn, 4000);
+    myTimer = setInterval(myFn, 3000);
 }
 
 // Thumbnail image controls
@@ -22,7 +22,7 @@ function currentSlide(n) {
 // to restart a new 4 second interval starting at this exact moment in time
     clearInterval(myTimer);
     slideAtual = n;
-    myTimer = setInterval(myFn, 4000);
+    myTimer = setInterval(myFn, 3000);
 }
 
 function showSlides(n) {
@@ -42,5 +42,5 @@ function showSlides(n) {
 }
 
 $(document).ready(function() {
-   myTimer =  setInterval( myFn, 4000);
+   myTimer =  setInterval( myFn, 3000);
 });

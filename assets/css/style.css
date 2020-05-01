@@ -1958,21 +1958,38 @@ ol {
 }
 
 .selecionado {
-	background-color: #28a745 !important;
+	background-color: #FF0000 !important;
+	color: white !important;
 }
 
 .comprado {
-	background-color: #dc3545 !important;
+	background-color: #28a745 !important;
+	color: white !important;
 }
 
 .reservado {
-	background-color: #ffc107 !important;
+	background-color: #FFFF33 !important;
+	color: black !important;
 }
 
 .disponivel{
 	background-color: #E7ECEF;
-}
+ }
 
+.badge-reservado{
+	background-color: #FFFF33 !important;
+	color: black !important;
+
+}
+.badge-comprado{
+	background-color: #28a745 !important;
+	color: white !important;
+
+}
+.badge-disponivel{
+	background-color: #E7ECEF !important;
+
+}
 .numero-sorteio {
 	width: 60px;
 	height: 60px;
@@ -2043,5 +2060,50 @@ ol {
 }
 
 .form-group{
+	width: 100%;
+}
+
+.round-shaped-btn {
+	border-radius: 90px;
+}
+
+.payment-area {
+
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.payment-method {
+	width: 250px;
+	height: 450px;
+	text-align: center;
+	font-size: 100%;
+	display: inline-block;
+}
+
+.payment-method-img {
+	width: 250px;
+	height: 150px;
+	text-align: center;
+	font-size: 100%;
+	display: inline-block;
+}
+
+.payment-method-text{
+	display: block;
+	text-align: left;
+}
+
+.total{
+	font-weight: 600;
+	font-size:120%;
+}
+
+.btn-grid{
+	display: inline-flex;
+	margin-bottom: 15px;
 	width: 100%;
 }

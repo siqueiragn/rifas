@@ -35,13 +35,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container-fluid">
         <div class="inner-header">
             <div class="logo">
-                <a class="logo-text" href="./index.html">Rifas do Sertão</a>
+                <a class="logo-text" href="<?php echo site_url();?>">Rifas do Sertão</a>
             </div>
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li><a href="<?php echo site_url();?>">Home</a></li>
                     <li><a href="<?php echo site_url('rifas/listar');?>">Sorteios</a></li>
-                    <li><a href="<?php echo site_url();?>">Formas Pagamento</a></li>
+                    <li><a href="<?php echo site_url('pagamentos/listar');?>">Pagamentos</a></li>
                     <li><a href="<?php echo site_url();?>">Contato</a></li>
                 </ul>
             </nav>

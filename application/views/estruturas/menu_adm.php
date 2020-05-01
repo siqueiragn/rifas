@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/slicknav.min.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/style.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/slides.css');?>" type="text/css">
+
 </head>
 
 <body>
@@ -35,12 +36,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container-fluid">
         <div class="inner-header">
             <div class="logo">
-                <a class="logo-text" href="./index.html">Rifas do Sertão</a>
+                <a class="logo-text" href="<?php echo site_url();?>">Rifas do Sertão</a>
             </div>
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li><a href="<?php echo site_url();?>">Voltar ao Site</a></li>
-                    <li><a href="<?php echo site_url( 'painel/rifas');?>">Gerenciar Rifas</a></li>
+                    <li><a href="<?php echo site_url( 'painel/rifas');?>">Gerenciar Sorteios</a></li>
+                    <li><a href="<?php echo site_url( 'centenas/listar');?>">Gerenciar Números</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>

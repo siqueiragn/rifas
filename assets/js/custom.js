@@ -57,11 +57,37 @@ $(document).ready(function() {
 
     });
 
-    CKEDITOR.replace( 'descricao' );
  });
 
 function clonar() {
     $elemento = $('#modelo').clone();
     $($($elemento).children()).children().val(null);
     $('.lista-arquivos').append($elemento);
+}
+
+function efetuar_reserva( btn, url ){
+
+    $(btn).prop('disabled', true);
+    $.ajax({
+        url: url,
+        type: 'POST',
+        data: {
+            rifa          : $('#rifa').val(),
+            numeros       : $('#numeros').val(),
+            nome_completo : $('#nome_completo').val(),
+            cliente       : $('#cliente').val(),
+            telefone      : ($('#telefone').val()).split(/ /)[0].replace(/[^\d]/g, ''),
+        },
+        success: function(retorno){
+
+
+            $("#area-retorno").html(retorno);
+
+        },
+        error: function(retorno){
+
+            $(btn).prop('disabled', false);
+            $('#area-retorno').html("Ocorreu um problema ao realizar a operação! Contate o suporte!");
+        }
+    });
 }

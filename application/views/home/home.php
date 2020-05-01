@@ -3,7 +3,7 @@
     <section class="homepage-about spad section">
         <div class="container">
             <div class="row">
-                <?php foreach ($objetos as $objeto) { ?>
+
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="section-title">
@@ -12,7 +12,7 @@
                         <p>
                            <?php echo $objeto->descricao; ?>
                         </p>
-                        <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="primary-btn">Comprar um número</a>
+                        <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="round-shaped-btn primary-btn">Comprar um número</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -52,7 +52,6 @@
                         </div>
                     </div>
                 </div>
-                <?php } ?>
             </div>
         </div>
     </section>

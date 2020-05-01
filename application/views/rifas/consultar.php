@@ -82,9 +82,9 @@
                 <div class="offset-lg-4 offset-xs-4 col-lg-4 col-xs-4 text-center">
 
                     <span class="badge legenda-texto badge-dark">Todos</span>
-                    <span class="badge legenda-texto badge-info">Disponível</span>
-                    <span class="badge legenda-texto badge-danger">Comprado</span>
-                    <span class="badge legenda-texto badge-warning">Reservado</span>
+                    <span class="badge legenda-texto badge-disponivel">Disponível</span>
+                    <span class="badge legenda-texto badge-comprado">Comprado</span>
+                    <span class="badge legenda-texto badge-reservado">Reservado</span>
 
                 </div>
             </div>
@@ -111,13 +111,13 @@
     <?php if ($marcar ) { ?>
     <div class="finalizar-compra hidden fixed-right-bottom text-right">
 
-        <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#modal_compra">Finalizar Compra</button>
+        <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#modal_compra">Reservar Números</button>
 
     </div>
     <!-- Home Page About Section End -->
 
 
-    <form action="<?php echo site_url($this->router->class . '/metodoPagamento');?>" method="POST">
+    <form action="<?php echo site_url($this->router->class . '/metodoPagamento/'. $objeto->id);?>" method="POST">
     <div class="modal fade" id="modal_compra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

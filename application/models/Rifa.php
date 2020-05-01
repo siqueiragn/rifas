@@ -11,6 +11,13 @@ class Rifa extends CI_Model  {
                         ->get($this->table);
 
     }
+    function getLastInsert( ) {
+
+        return $this->db->select('*')
+                        ->order_by('id desc')
+                        ->get($this->table);
+
+    }
 
 
     function getAll() {
