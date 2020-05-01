@@ -68,6 +68,7 @@
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="<?php echo site_url('/assets/js/mascaras.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/load-mascaras.js');?>"></script>
+<script src="<?php echo site_url('/assets/js/main.js');?>"></script>
 <script src="https://use.fontawesome.com/2629945dd9.js"></script>
 
 </body>

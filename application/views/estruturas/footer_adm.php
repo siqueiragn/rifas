@@ -29,6 +29,7 @@
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="<?php echo site_url('/assets/js/mascaras.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/load-mascaras.js');?>"></script>
+<script src="<?php echo site_url('/assets/js/main.js');?>"></script>
 <script src="<?php echo site_url('/assets/addons/ckeditor/ckeditor.js');?>"></script>
 <script>CKEDITOR.replace( 'descricao' );</script>
 </body>
