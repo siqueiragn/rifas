@@ -12,7 +12,8 @@
         $this->dados_globais['caminho_upload_img']      = getcwd() . '/assets/img/';
         $this->dados_globais['caminho_externo_upload']  = site_url( '/assets/img/rifas/');
         $this->dados_globais['caminho_externo_img']     = site_url( '/assets/img/');
-        $this->dados_globais['whatsapp']                = '5551999589289';
+        $this->dados_globais['whatsapp']                = '5587999660592';
+        $this->dados_globais['whatsapp_formatado']      = '+55 (87) 9 9966-0592';
 
 
         function pre( $content ) {

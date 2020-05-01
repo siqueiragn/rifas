@@ -144,8 +144,8 @@ ol {
 }
 
 .spad {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 130px;
+	padding-bottom: 130px;
 }
 
 .text-white h1,
@@ -724,10 +724,6 @@ ol {
 	margin-bottom: 0;
 }
 
-.footer-item {
-	margin-bottom: 30px;
-}
-
 .footer-item .footer-logo {
 	margin-bottom: 25px;
 }
@@ -742,7 +738,6 @@ ol {
 .footer-item h5 {
 	color: #F9AD81;
 	font-weight: 500;
-	margin-bottom: 57px;
 }
 
 .footer-item .newslatter-form {
@@ -806,7 +801,7 @@ ol {
 }
 
 .footer-item ul {
-	margin-top: -5px;
+	margin-top: 10px;
 }
 
 .footer-item ul li {

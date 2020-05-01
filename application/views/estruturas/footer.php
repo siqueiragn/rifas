@@ -7,17 +7,15 @@
                     <div class="footer-logo logo">
                         <a class="logo-text" href="./index.html">Rifas do Sertão</a>
                     </div>
-                    <p>Texto texto texto texto</p>
-                </div>
+                 </div>
             </div>
             <div class="col-lg-4">
 
             </div>
             <div class="col-lg-4">
                 <div class="footer-item">
-                    <h5>Contato</h5>
                     <ul>
-                        <li><img src="<?php echo $this->dados_globais['caminho_externo_img'] . 'phone.png';?>" alt="">+55 (XX)XXXXX-XXXX</li>
+                        <li><img src="<?php echo $this->dados_globais['caminho_externo_img'] . 'phone.png';?>" alt=""><?php echo $this->dados_globais['whatsapp_formatado'];?></li>
                     </ul>
                 </div>
             </div>
