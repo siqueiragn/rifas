@@ -12,6 +12,7 @@
         $this->dados_globais['caminho_upload_img']      = getcwd() . '/assets/img/';
         $this->dados_globais['caminho_externo_upload']  = site_url( '/assets/img/rifas/');
         $this->dados_globais['caminho_externo_img']     = site_url( '/assets/img/');
+        $this->dados_globais['whatsapp']                = '5551999589289';
 
 
         function pre( $content ) {

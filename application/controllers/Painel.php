@@ -42,21 +42,33 @@ class Painel extends My_Controller {
 
     public function home() {
 
-        $this->load->view('estruturas/menu_adm');
-        $this->load->view($this->router->class . '/home');
-        $this->load->view('estruturas/footer_adm');
+        if ( $this->nativesession->get('autenticado') ) {
+
+            $this->load->view('estruturas/menu_adm');
+            $this->load->view($this->router->class . '/home');
+            $this->load->view('estruturas/footer_adm');
+
+        } else {
+            redirect( $this->router->class . '/login?login=error');
+        }
 
     }
 
     public function rifas() {
 
-	    $this->load->model('rifa');
+        if ( $this->nativesession->get('autenticado') ) {
 
-        $data['objetos'] = $this->rifa->getAll()->result();
+            $this->load->model('rifa');
+
+            $data['objetos'] = $this->rifa->getAll()->result();
 
 
-        $this->load->view('estruturas/menu_adm', $data);
-        $this->load->view($this->router->class . '/rifas');
-        $this->load->view('estruturas/footer_adm');
+            $this->load->view('estruturas/menu_adm', $data);
+            $this->load->view($this->router->class . '/rifas');
+            $this->load->view('estruturas/footer_adm');
+
+        } else {
+            redirect( $this->router->class . '/login?login=error');
+        }
     }
 }

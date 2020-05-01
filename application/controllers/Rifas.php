@@ -181,6 +181,7 @@ class Rifas extends My_Controller {
 
             $this->load->view('estruturas/menu');
             $this->load->view($this->router->class . '/pagamento', $data);
+            $this->load->view( 'home/pagamentos');
             $this->load->view('estruturas/footer');
         }
     }
@@ -218,7 +219,7 @@ class Rifas extends My_Controller {
             } else {
                 echo "Reserva realizada com sucesso para os seguintes números: " . implode(", ", $numerosReservados) . ", envie seu comprovante de pagamento anexando-o abaixo ou via Whatsapp!<br>";
                 echo "<button type=\"button\" class=\"btn btn-primary\"  data-toggle=\"modal\" data-target=\"#modal_compra\">Enviar Comprovante <i class=\"fa fa-cloud-upload\"></i></button>";
-                echo "<a target='_blank' href='https://api.whatsapp.com/send?phone=5551999589289&text=Ol%C3%A1%2C%20meu%20nome%20%C3%A9%20" . urlencode($nome) . "'  class=\"btn btn-success\" >Enviar Comprovante <i class=\"fa fa-whatsapp\"></i></a>";
+                echo "<a target='_blank' href='https://api.whatsapp.com/send?phone=" . $this->dados_globais['whatsapp'] . "&text=Ol%C3%A1%2C%20meu%20nome%20%C3%A9%20" . urlencode($nome) . "'  class=\"btn btn-success\" >Enviar Comprovante <i class=\"fa fa-whatsapp\"></i></a>";
             }
 
         }

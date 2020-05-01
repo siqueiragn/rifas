@@ -76,7 +76,7 @@ function efetuar_reserva( btn, url ){
             numeros       : $('#numeros').val(),
             nome_completo : $('#nome_completo').val(),
             cliente       : $('#cliente').val(),
-            telefone      : ($('#telefone').val()).split(/ /)[0].replace(/[^\d]/g, ''),
+            telefone      : ($('#telefone').val()).replace(/[^\d]/g, ''),
         },
         success: function(retorno){
 
@@ -90,4 +90,44 @@ function efetuar_reserva( btn, url ){
             $('#area-retorno').html("Ocorreu um problema ao realizar a operação! Contate o suporte!");
         }
     });
+}
+
+function buscar_numeros( btn, url ){
+    telefone = ($('#telefone').val()).replace(/[^\d]/g, '');
+
+    if ( telefone.length == 11 ) {
+        $(btn).prop('disabled', true);
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                telefone: telefone,
+            },
+            success: function (retorno) {
+
+                $(".area-comprovantes").html(retorno);
+                $('#modal_compra').modal('hide');
+
+            },
+            error: function (retorno) {
+
+                $(btn).prop('disabled', false);
+                $('.area-comprovantes').html("Ocorreu um problema ao realizar a operação! Contate o suporte!");
+                $('#modal_compra').modal('hide');
+            }
+        });
+    } else {
+        alert("Preencha um telefone válido!");
+    }
+}
+
+function  preparar_dados_envio(cliente, rifa) {
+
+    if ( cliente != '' && rifa != '' ){
+
+        $('#modal_upload').modal('show');
+        $('#rifa').val(rifa);
+        $('#cliente').val(cliente);
+    }
+
 }
