@@ -2,14 +2,8 @@
 *.sublime-workspace
 *.sublime-project
 application/cache/*
-assets/img/comprovantes/*.jpg
-assets/img/comprovantes/*.png
-assets/img/comprovantes/*.jpeg
-assets/img/comprovantes/*.pdf
-assets/img/rifas/*.jpg
-assets/img/rifas/*.png
-assets/img/rifas/*.jpeg
-assets/img/rifas/*.pdf
+assets/img/comprovantes/* 
+assets/img/rifas/*
 node_modules/
 Thumbs.db
 .vscode/

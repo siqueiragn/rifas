@@ -31,7 +31,7 @@ class Home extends My_Controller {
 	        $telefone = $this->input->post('telefone');
 
 	        $this->load->model('centena');
-	        $data['centenas'] = $this->centena->getByTelefone($telefone, true)->result();
+	        $data['centenas'] = $this->centena->getByTelefone($telefone, false)->result();
 
 	        if ( count($data['centenas']) > 0 ) {
 
