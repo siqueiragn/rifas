@@ -19,7 +19,7 @@ class Centena extends CI_Model  {
     }
 
     function getAllJoinClient( $cliente = null, $telefone = null, $status = null) {
-        $sql = "SELECT DISTINCT d.cliente AS comprovante, a.id, a.numero, a.status, a.adquirido, b.id AS cliente_id, b.nome, b.telefone, c.id AS rifa_id, c.nome AS rifa_nome FROM centenas A LEFT JOIN clientes B ON A.cliente = B.id LEFT JOIN ITEM_RIFADO C ON A.ITEM_RIFADO = C.ID LEFT JOIN comprovantes d ON d.cliente = b.id  WHERE c.cliente_ganhador is null";
+        $sql = "SELECT DISTINCT d.cliente AS comprovante, a.id, a.numero, a.status, a.adquirido, b.id AS cliente_id, b.nome, b.telefone, c.id as rifa_id, c.nome as rifa_nome from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id left join comprovantes d on d.cliente = b.id  where c.cliente_ganhador is null";
 
         if ( $cliente != null ) {
             $sql .= " AND LOWER(b.nome) LIKE LOWER('%$cliente%') ";

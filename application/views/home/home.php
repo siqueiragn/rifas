@@ -4,6 +4,7 @@
         <div class="container">
             <div class="row">
 
+                <?php if ($objeto) { ?>
                 <div class="col-lg-6">
                     <div class="about-text">
                         <div class="section-title">
@@ -53,6 +54,10 @@
                     </div>
                 </div>
             </div>
+
+            <?php } else { ?>
+                <h5 class="text-center">Sem sorteios disponíveis!</h5>
+            <?php } ?>
         </div>
     </section>
     <!-- Home Page About Section End -->

@@ -14,12 +14,12 @@ class Cliente extends CI_Model  {
 
     function getByIdGanhador( $codigo ) {
 
-        return $this->db->query("SELECT a.nome, a.telefone, b.numero FROM CLIENTES A INNER JOIN CENTENAS B ON A.ID = B.CLIENTE WHERE A.ID = $codigo");
+        return $this->db->query("select a.nome, a.telefone, b.numero from clientes a inner join centenas b on a.id = b.cliente where a.id = $codigo");
     }
 
     function verificarExistente( $nome, $telefone ) {
 
-        return $this->db->query("SELECT * FROM CLIENTES WHERE LOWER(nome) = LOWER('$nome') and telefone = '$telefone'");
+        return $this->db->query("select * from clientes where lower(nome) = lower('$nome') and telefone = '$telefone'");
     }
 
 

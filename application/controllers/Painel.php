@@ -31,7 +31,6 @@ class Painel extends My_Controller {
 
             $login = $this->usuario->login( $this->input->post('usuario'), $this->input->post('senha') );
             if ( $login->num_rows() > 0 ) {
-                echo "Autenticado!";
                 $this->nativesession->set('autenticado', true);
                 $this->nativesession->set('usuario', $login->row()->login);
                 redirect( $this->router->class . '/home');

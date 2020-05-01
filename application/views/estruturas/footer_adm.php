@@ -23,7 +23,6 @@
 <script src="<?php echo site_url('/assets/js/jquery-ui.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/jquery.nice-select.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/jquery.slicknav.js');?>"></script>
-<script src="<?php echo site_url('/assets/js/owl.carousel.min.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/main.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/slides.js');?>"></script>
 <script src="<?php echo site_url('/assets/js/custom.js');?>"></script>
