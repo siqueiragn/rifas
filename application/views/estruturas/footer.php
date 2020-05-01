@@ -1,11 +1,31 @@
 <!-- Footer Section Begin -->
 <footer class="footer-section">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
+        <div class="row footer-item-list ">
+
+            <div class="col-lg-3">
+                <div class="footer-title">Escolha um sorteio</div>
+                <div class="footer-content">Consulte a lista de sorteios e escolha um de sua preferência</div>
+            </div>
+            <div class="col-lg-3">
+                <div class="footer-title">Compre seus números</div>
+                <div class="footer-content">Você pode comprar quantos desejar, quanto maior a quantidade, maior as chances</div>
+            </div>
+            <div class="col-lg-3">
+                <div class="footer-title">Realize o pagamento</div>
+                <div class="footer-content">Pague através das opções disponibilizadas, ao enviar o seu comprovante você já está concorrendo</div>
+            </div>
+            <div class="col-lg-3">
+                <div class="footer-title">Aguarde o resultado</div>
+                <div class="footer-content">O resultado é divulgado pela Loteria Federal, boa sorte!</div>
+            </div>
+
+        </div>
+        <div class="row pt-4">
+            <div class="col-lg-4 only-xs">
                 <div class="footer-item">
                     <div class="footer-logo logo">
-                        <a class="logo-text" href="./index.html">Rifas do Sertão</a>
+                        <a class="logo-text" href="<?php echo site_url();?>">Rifas do Sertão</a>
                     </div>
                  </div>
             </div>
@@ -13,7 +33,7 @@
 
             </div>
             <div class="col-lg-4">
-                <div class="footer-item">
+                <div class="footer-item text-right">
                     <ul>
                         <li><img src="<?php echo $this->dados_globais['caminho_externo_img'] . 'phone.png';?>" alt=""><?php echo $this->dados_globais['whatsapp_formatado'];?></li>
                     </ul>
