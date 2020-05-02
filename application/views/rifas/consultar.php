@@ -50,9 +50,7 @@
                             foreach ($imagens->result() as $indice=>$imagem) { ?>
                                 <!-- Full-width images with number and caption text -->
                                 <div class="mySlides ">
-                                    <div class="numbertext"><?php echo $indice+1;?> / <?php echo $imagens->num_rows();?></div>
                                     <img src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" style="width:100%">
-                                    <div class="text"></div>
                                 </div>
 
                             <?php } ?>
@@ -79,18 +77,21 @@
 
     <section class="homepage-about spad section" style="padding-top: 0;">
             <div class="row">
-                <div class="offset-lg-4 offset-xs-4 col-lg-4 col-xs-4 text-center">
+                <div class="offset-lg-2 offset-xs-2 col-lg-8 col-xs-8 text-center">
 
                     <span class="badge legenda-texto badge-dark">Todos</span>
                     <span class="badge legenda-texto badge-disponivel">Disponível</span>
                     <span class="badge legenda-texto badge-comprado">Comprado</span>
                     <span class="badge legenda-texto badge-reservado">Reservado</span>
+                    <span class="badge legenda-texto badge-selecionado"">Meus números</span>
 
+                    <input id="meus_numeros" type="hidden">
                 </div>
             </div>
         <br>
             <div class="row">
                 <div class="col-lg-10 offset-lg-1 col-xs-10 offset-lg-1 text-center">
+                    <div id="erro-buscar" style="100%"></div>
                     <div class="noselect col-lg-8 offset-lg-2 col-xs-8 offset-xs-2">
 
                     <?php $cont = 0; for( $i = 0; $i < 1000; $i++) { ?>
@@ -158,3 +159,35 @@
     </form>
 
     <?php } ?>
+
+
+    <div class="modal fade" id="modal_buscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Buscar meus números</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <label for="" class="col-lg-12 col-xs-12">Telefone</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12">
+                            <input type="text" id="telefone_buscar" class="form-control mascara-telefone input-sm" tabindex="1">
+                            <input type="hidden" id="rifa" value="<?php echo $this->uri->segment(3);?>">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-xs-12" id="erro_label">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="buscar_numeros_consulta('<?php echo site_url($this->router->class . '/consultar_numeros');?>');" class="btn btn-primary">Consultar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

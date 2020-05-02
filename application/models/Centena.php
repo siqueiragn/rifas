@@ -45,6 +45,14 @@ class Centena extends CI_Model  {
 
     }
 
+    function buscar_telefone($telefone, $rifa) {
+
+        $sql = "select a.numero from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id  where b.telefone = '$telefone' and  a.item_rifado = $rifa ";
+
+        return $this->db->query($sql);
+
+    }
+
     function aprovar($id) {
         $data = array(
             'status'          => 2

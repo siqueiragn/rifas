@@ -33,7 +33,7 @@
                             <?php if ($objeto->cliente_ganhador != '') { ?>
                                 <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="btn btn-sm sm-padding btn-danger">Visualizar resultado</a>
                             <?php } else { ?>
-                                <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="btn btn-sm sm-padding primary-btn">Comprar um número</a>
+                                <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="btn btn-sm sm-padding btn-custom">Comprar um número</a>
                             <?php } ?>
                         </div>
                     </div>

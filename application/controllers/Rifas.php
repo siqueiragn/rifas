@@ -57,6 +57,7 @@ class Rifas extends My_Controller {
 
         $this->load->view('estruturas/menu');
         $this->load->view($this->router->class . '/consultar', $data);
+        $this->load->view( 'home/pagamentos');
         $this->load->view('estruturas/footer');
     }
 
@@ -251,5 +252,24 @@ class Rifas extends My_Controller {
         redirect($this->router->class . '/consultar/' . $item_rifado);
 
 
+    }
+
+    function consultar_numeros() {
+
+	    if ( $this->input->post()) {
+            $this->load->model('centena');
+            $centenas = $this->centena->buscar_telefone($this->input->post('telefone'), $this->input->post('rifa'))->result();
+            $aux = array();
+            foreach ($centenas as $linha) {
+                array_push($aux, $linha->numero);
+            }
+
+            if ( count($centenas) > 0) {
+
+                echo implode(",", $aux);
+            } else {
+                echo "N";
+            }
+        }
     }
 }

@@ -4,38 +4,42 @@
         <div class="row footer-item-list ">
 
             <div class="col-lg-3">
-                <div class="footer-title">Escolha um sorteio</div>
+                <div class="footer-title"><i class="fa fa-search"></i> &nbsp;&nbsp;&nbsp;Escolha um sorteio</div>
                 <div class="footer-content">Consulte a lista de sorteios e escolha um de sua preferência</div>
             </div>
             <div class="col-lg-3">
-                <div class="footer-title">Compre seus números</div>
+                <div class="footer-title"><i class="fa fa-check-circle-o"></i> &nbsp;&nbsp;Compre seus números</div>
                 <div class="footer-content">Você pode comprar quantos desejar, quanto maior a quantidade, maior as chances</div>
             </div>
             <div class="col-lg-3">
-                <div class="footer-title">Realize o pagamento</div>
+                <div class="footer-title"><i class="fa fa-money"></i> &nbsp;&nbsp;Realize o pagamento</div>
                 <div class="footer-content">Pague através das opções disponibilizadas, ao enviar o seu comprovante você já está concorrendo</div>
             </div>
             <div class="col-lg-3">
-                <div class="footer-title">Aguarde o resultado</div>
+                <div class="footer-title"><i class="fa fa-bell-o"></i> &nbsp;&nbsp;Aguarde o resultado</div>
                 <div class="footer-content">O resultado é divulgado pela Loteria Federal, boa sorte!</div>
             </div>
 
         </div>
         <div class="row pt-4">
-            <div class="col-lg-4 only-xs">
-                <div class="footer-item">
-                    <div class="footer-logo logo">
-                        <a class="logo-text" href="<?php echo site_url();?>">Rifas do Sertão</a>
-                    </div>
-                 </div>
-            </div>
             <div class="col-lg-4">
-
-            </div>
-            <div class="col-lg-4">
-                <div class="footer-item text-right">
+                <div class="footer-item text-center">
                     <ul>
-                        <li><img src="<?php echo $this->dados_globais['caminho_externo_img'] . 'phone.png';?>" alt=""><?php echo $this->dados_globais['whatsapp_formatado'];?></li>
+                        <li><i class="fa fa-envelope-o"></i> <a class="custom-link" href="mailto:<?php echo $this->dados_globais['email_formatado'];?>"><?php echo $this->dados_globais['email_formatado'];?></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-item text-center">
+                    <ul>
+                        <li><i class="fa fa-instagram"></i> <a class="custom-link" href="www.instagram.com/rifasdosertao"><?php echo $this->dados_globais['instagram_formatado'];?></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-item text-center">
+                    <ul>
+                        <li><i class="fa fa-whatsapp"></i> <?php echo $this->dados_globais['whatsapp_formatado'];?></li>
                     </ul>
                 </div>
             </div>

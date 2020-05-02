@@ -1,5 +1,11 @@
 
 $(document).ready(function() {
+    $($('.carousel-item.active').children()).addClass('animate');
+    $('#myCarousel').on('slid.bs.carousel', function () {
+        $($('.carousel-item').children()).removeClass('animate');
+        $($('.carousel-item.active').children()).addClass('animate');
+
+    });
 
     $('[data-toggle="popover"]').popover();
     numeros = [];
@@ -28,24 +34,29 @@ $(document).ready(function() {
     });
 
     $('.legenda-texto').on('click', function (e) {
+        $('#erro-buscar').html('');
 
-        if ( $(e.target).hasClass('badge-info')) {
+        if ( $(e.target).hasClass('badge-disponivel')) {
 
             $('.disponivel').removeClass('hidden');
             $('.comprado').addClass('hidden');
             $('.reservado').addClass('hidden');
 
-        } else if ( $(e.target).hasClass('badge-danger') ) {
+        } else if ( $(e.target).hasClass('badge-comprado') ) {
 
             $('.disponivel').addClass('hidden');
             $('.comprado').removeClass('hidden');
             $('.reservado').addClass('hidden');
 
-        } else if ( $(e.target).hasClass('badge-warning') ) {
+        } else if ( $(e.target).hasClass('badge-reservado') ) {
 
             $('.disponivel').addClass('hidden');
             $('.comprado').addClass('hidden');
             $('.reservado').removeClass('hidden');
+
+        } else if ( $(e.target).hasClass('badge-selecionado') ) {
+
+            verificar_numeros();
 
         } else {
 
@@ -129,5 +140,67 @@ function  preparar_dados_envio(cliente, rifa) {
         $('#rifa').val(rifa);
         $('#cliente').val(cliente);
     }
+
+}
+
+function verificar_numeros() {
+
+    if ($('#meus_numeros').val() == '') {
+        $('#modal_buscar').modal('show');
+    } else {
+        marcar_numeros($('#meus_numeros').val().split(","));
+    }
+
+}
+
+function buscar_numeros_consulta( url ){
+
+    telefone = ($('#telefone_buscar').val()).replace(/[^\d]/g, '');
+    rifa     = $('#rifa').val();
+
+    if ( telefone.length == 11 && rifa != '' ) {
+
+        $("#erro-label").html('');
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                telefone: telefone,
+                rifa    : rifa,
+            },
+            success: function (retorno) {
+
+                if ( retorno == 'N' ) {
+                    $('#erro-buscar').html("Não foram encontrados números para esse telefone!");
+                    marcar_numeros( [] );
+                } else {
+                    $("#meus_numeros").val(retorno);
+                    marcar_numeros($('#meus_numeros').val().split(","));
+                 }
+                $('#modal_buscar').modal('hide');
+
+            },
+            error: function (retorno) {
+
+                $("#erro-label").html('Ocorreu um problema ao realizar a operação!');
+                $('#modal_buscar').modal('hide');
+            }
+        });
+
+    } else {
+        $("#erro-label").html('Preencha um telefone válido! (XX) X XXXX-XXXX');
+    }
+
+}
+
+function marcar_numeros( numeros ) {
+
+    $('.numero-sorteio').addClass('hidden');
+    $('.numero-sorteio').each( function(i, e) {
+        if ( numeros.indexOf( (i).toString()) != -1) {
+            $(e).removeClass('hidden');
+        }
+    });
 
 }
