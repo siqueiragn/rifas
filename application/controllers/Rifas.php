@@ -115,14 +115,17 @@ class Rifas extends My_Controller {
 
                 $this->load->model('imagem');
                 foreach ($_FILES['arquivos']['tmp_name'] as $i=>$tmp) {
-                    $temp = explode(".", $_FILES["arquivos"]["name"][$i]); // extensão
 
-                    $this->imagem->salvar( $temp[1], $idRifa );
-                    $idImagem = $this->db->insert_id();
-                    if ( !is_dir($this->dados_globais['caminho_upload'] . "$idRifa") ) {
-                        mkdir($this->dados_globais['caminho_upload'] . "$idRifa", 0777, true );
+                    if ( file_exists($tmp) ) {
+                        $temp = explode(".", $_FILES["arquivos"]["name"][$i]); // extensão
+
+                        $this->imagem->salvar( $temp[1], $idRifa );
+                        $idImagem = $this->db->insert_id();
+                        if ( !is_dir($this->dados_globais['caminho_upload'] . "$idRifa") ) {
+                            mkdir($this->dados_globais['caminho_upload'] . "$idRifa", 0777, true );
+                        }
+                        move_uploaded_file($tmp, $this->dados_globais['caminho_upload'] . "$idRifa/$idImagem." . $temp[1] );
                     }
-                    move_uploaded_file($tmp, $this->dados_globais['caminho_upload'] . "$idRifa/$idImagem." . $temp[1] );
                 }
 
                 redirect( 'painel/rifas' );

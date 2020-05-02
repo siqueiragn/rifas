@@ -44,3 +44,5 @@ function showSlides(n) {
 $(document).ready(function() {
    myTimer =  setInterval( myFn, 3000);
 });
+
+

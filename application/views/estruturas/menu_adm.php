@@ -36,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container-fluid">
         <div class="inner-header">
             <div class="logo">
-                <a class="logo-text"  href="<?php echo site_url();?>">Rifas do Sertão</a>
-                <a class="under-logo" href="<?php echo site_url();?>" >www.rifasdosertao.com.br</a>
+                <a href="<?php echo site_url();?>">  <img class="logo-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . 'logo.jpg';?>"></a>
+
             </div>
             <nav class="main-menu mobile-menu">
                 <ul>

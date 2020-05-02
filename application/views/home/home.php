@@ -13,7 +13,7 @@
                         foreach ($objetos->result() as $indice=>$linha) { ?>
                             <!-- Full-width images with number and caption text -->
                             <div class="carousel-item <?php if ($indice == 0) { echo "active"; } ?>">
-                                <img class="d-block carousel-img  w-100" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$linha->id}/{$linha->id_imagem}.{$linha->extensao}";?>">
+                                <img class="d-block w-100 carousel-img" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$linha->id}/{$linha->id_imagem}.{$linha->extensao}";?>">
                                 <div class="about-text-carousel">
                                     <div class="section-title">
                                         <?php echo $linha->nome;?>

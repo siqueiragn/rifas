@@ -15,7 +15,7 @@
 
                         <div class="section-title">
                             <h5>Valor do número R$<?php echo $objeto->valor;?></h5>
-                            <h5>Sorteio ocorre dia <?php echo $objeto->sorteio;?></h5>
+                            <h5><i class="fa fa-calendar"></i> Sorteio ocorre dia <?php echo $objeto->sorteio;?></h5>
                         </div>
                     </div>
                     <?php
@@ -50,7 +50,7 @@
                             foreach ($imagens->result() as $indice=>$imagem) { ?>
                                 <!-- Full-width images with number and caption text -->
                                 <div class="mySlides ">
-                                    <img src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" style="width:100%">
+                                    <img class="w-100 d-block" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" >
                                 </div>
 
                             <?php } ?>
@@ -62,7 +62,7 @@
                         <br>
 
                         <!-- The dots/circles -->
-                        <div style="text-align:center">
+                        <div class="hidden">
                             <?php foreach ($imagens->result() as $indice=>$imagem) { ?>
 
                                 <span class="dot" onclick="currentSlide(<?php echo $indice+1;?>)"></span>

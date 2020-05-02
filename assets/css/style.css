@@ -1195,9 +1195,6 @@ ol {
 
 .carousel-img {
 	transform: scale(1.0);
-	width:1400px;
-	min-height: 200px;
-	max-height: 500px;
 	transition: all 10s;
 }
 
