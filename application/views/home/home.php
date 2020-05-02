@@ -1,6 +1,6 @@
 
     <!-- Home Page About Section Begin -->
-    <section class="homepage-about section" style="margin-top: 60px;">
+    <section class="homepage-about section" style="margin-top: 97px;">
         <div class="container-carousel">
             <div class="row">
 

@@ -82,7 +82,7 @@ ol {
 [class^=flaticon-]:after,
 [class*=" flaticon-"]:after {
 	font-family: Flaticon;
-	font-size: 38px;header-section
+	font-size: 38px;
 	font-style: normal;
 }
 
@@ -232,7 +232,7 @@ ol {
 }
 
 .header-section {
-	background-color: #272932;
+	background-color: #005e38;
 	padding-left: 30px;
 	padding-right: 30px;
 	position: absolute;
@@ -259,6 +259,7 @@ ol {
 	float: right;
 	margin-right: 30px;
 	display: block;
+	margin-top: 18px;
 }
 
 .inner-header .main-menu ul li {
@@ -415,7 +416,7 @@ ol {
 -----------------------*/
 
 .footer-section {
-	background: #272932;
+	background: #005E38;
 	padding-top: 20px;
 	margin-bottom: 0;
 }
@@ -1207,9 +1208,15 @@ ol {
 .under-logo {
 	line-height: normal;
 	margin-top: -20px;
+	margin-left: -60px;
 	font-size: 10px;
 	text-align: center;
 	color: white;
+}
+
+.logo-img {
+	width: 115px;
+	height: 97px;
 }
 
 .btn-custom {
