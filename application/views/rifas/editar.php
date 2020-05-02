@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group" style="display: inline-flex;">
                             <div class="col-lg-4 col-xs-6" style="padding: 0;">
-                                <input type="text" class="form-control mascara-data datepicker input-sm" tabindex="0" name="sorteio" id="sorteio" value="<?php echo $objeto->sorteio;?>">
+                                <input type="text" class="form-control mascara-data datepicker-1 input-sm" tabindex="0" name="sorteio" id="sorteio" value="<?php echo $objeto->sorteio;?>">
                             </div>
                             <div class="col-lg-4 offset-lg-2 col-xs-6" style="padding: 0;">
                                 <input type="text" class="form-control mascara-percentual input-sm" tabindex="0" name="valor" id="valor" value="<?php echo $objeto->valor;?>">
@@ -41,11 +41,21 @@
                         <hr>
 
                         <?php
-                        foreach ($imagens->result() as $indice=>$imagem) { ?>
-                            <!-- Full-width images with number and caption text -->
-                             <img width="200" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>" style="width:100%">
+                            foreach ($imagens->result() as $indice=>$imagem) { ?>
+                            <div class="imagem-painel">
 
-                        <?php } ?>
+                            <!-- Full-width images with number and caption text -->
+                                    <a target="_blank" href="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>">
+                                        <img width="200" class="thumbnail" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/{$imagem->id}.{$imagem->extensao}";?>">
+                                    </a>
+
+                                    <div class="checkbox-area">
+                                        <input class="checkbox-remover-imagem" type="checkbox" name="remover_imagem[]" value="<?php echo $imagem->id;?>"> Remover
+                                    </div>
+
+
+                            </div>
+                            <?php } ?>
 
                         <div class="lista-arquivos">
                             <div class="form-group" id="modelo">
@@ -60,7 +70,7 @@
                         </div>
 
                         <div class="form-group text-center">
-                            <button type="submit" class="btn btn-success" tabindex="0">Criar</button>
+                            <button type="submit" class="btn btn-success" tabindex="0">Atualizar</button>
                         </div>
                     </div>
 

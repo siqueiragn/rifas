@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group" style="display: inline-flex;">
                             <div class="col-lg-4 col-xs-6" style="padding: 0;">
-                                <input type="text" class="form-control mascara-data datepicker input-sm" tabindex="0" name="sorteio" id="sorteio">
+                                <input type="text" class="form-control mascara-data datepicker-1 input-sm" tabindex="0" name="sorteio" id="sorteio">
                             </div>
                             <div class="col-lg-4 offset-lg-2 col-xs-6" style="padding: 0;">
                                 <input type="text" class="form-control mascara-percentual input-sm" tabindex="0" name="valor" id="valor">

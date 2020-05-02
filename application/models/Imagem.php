@@ -39,6 +39,10 @@ class Imagem extends CI_Model  {
 
     }
 
+    function remover( $id ) {
+        $this->db->query( "delete from $this->table where id = $id" );
+    }
+
 
 }
 

@@ -142,16 +142,39 @@ class Rifas extends My_Controller {
         if ( $this->nativesession->get('autenticado') ) {
 
             if ($this->input->post()) {
-                $id = $this->input->get('id');
+                $rifa      = $this->input->get('id');
+                $nome      = $this->input->post('nome');
+                $descricao = $this->input->post('descricao');
+                $sorteio   = $this->input->post('sorteio');
+                $valor     = $this->input->post('valor');
 
-                echo "A ser desenvolvido!";
-                echo pre($this->input->post());
+                $this->load->model('rifa');
+                $this->rifa->atualizar($rifa, $nome, $descricao, $sorteio, $valor);
 
-                // todo salvar atualizações
-                // todo criar thumbnail imagens
-                // todo remover imagens
+                $this->load->model('imagem');
+                foreach ( $this->input->post('remover_imagem') as $indice=>$id) {
 
-                exit;
+                    $imagem = $this->imagem->getByID($id)->row();
+                    unlink( $this->dados_globais['caminho_upload_img'] . "/rifas/{$rifa}/{$id}.{$imagem->extensao}");
+                    $this->imagem->remover($id);
+                }
+
+                foreach ($_FILES['arquivos']['tmp_name'] as $i=>$tmp) {
+
+                    if ( file_exists($tmp) ) {
+                        $temp = explode(".", $_FILES["arquivos"]["name"][$i]); // extensão
+
+                        $this->imagem->salvar( $temp[1], $rifa );
+                        $idImagem = $this->db->insert_id();
+                        if ( !is_dir($this->dados_globais['caminho_upload'] . "$rifa") ) {
+                            mkdir($this->dados_globais['caminho_upload'] . "$rifa", 0777, true );
+                        }
+                        move_uploaded_file($tmp, $this->dados_globais['caminho_upload'] . "$rifa/$idImagem." . $temp[1] );
+                    }
+                }
+
+                redirect( 'painel/rifas' );
+
             }
 
         }
