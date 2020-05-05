@@ -38,8 +38,13 @@
     /*------------------
 		Date Picker
 	--------------------*/
-    $(".datepicker-1").datepicker();
-    $(".datepicker-2").datepicker();
+
+    $(".datepicker-1").datepicker({
+        format: 'dd/mm/yyyy',
+    });
+    $(".datepicker-2").datepicker({
+        format: 'dd/mm/yyyy',
+    });
 
     /*------------------
 		Nice Selector

@@ -14,7 +14,7 @@
         $this->dados_globais['caminho_externo_img']     = site_url( '/assets/img/');
         $this->dados_globais['whatsapp']                = '5587999660592';
         $this->dados_globais['whatsapp_formatado']      = '+55 (87) 9 9966-0592';
-        $this->dados_globais['instagram_formatado']     = '@rifasdosertao';
+        $this->dados_globais['instagram_formatado']     = '@rifassdosertao';
         $this->dados_globais['email_formatado']         = 'contato@rifasdosertao.com.br';
 
 

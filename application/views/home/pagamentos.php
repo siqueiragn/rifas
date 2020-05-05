@@ -18,7 +18,7 @@
             <label class="payment-method-text">Titular: Lucas Bione Cavalcante</label>
             <label class="payment-method-text">CPF: 082.527.624-17</label>
             <label class="payment-method-text">Agência: 0001</label>
-            <label class="payment-method-text">Conta: 38049635</label>
+            <label class="payment-method-text">Conta: 3804963-5</label>
             <label class="payment-method-text">&nbsp;</label>
         </div>
         <div class="payment-method">
@@ -46,6 +46,15 @@
             <label class="payment-method-text">CPF: 082.527.624-17</label>
             <label class="payment-method-text">Agência: 4008</label>
             <label class="payment-method-text">Conta: 1067674-9</label>
+            <label class="payment-method-text">Tipo: Conta Corrente</label>
+        </div>
+        <div class="payment-method">
+            <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/itau.jpg";?>" >
+            <label class="payment-method-text">Itaú - 34</label>
+            <label class="payment-method-text">Titular: Lucas Bione Cavalcante</label>
+            <label class="payment-method-text">CPF: 082.527.624-17</label>
+            <label class="payment-method-text">Agência: 8290</label>
+            <label class="payment-method-text">Conta: 53074-3</label>
             <label class="payment-method-text">Tipo: Conta Corrente</label>
         </div>
         <div class="payment-method">

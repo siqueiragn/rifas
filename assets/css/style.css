@@ -1002,6 +1002,8 @@ ol {
 
 .legenda-texto {
 	font-size: 100%;
+	cursor:pointer;
+
 }
 
 .badge-info {

@@ -37,7 +37,7 @@ class Centena extends CI_Model  {
 
     function getByTelefone($telefone, $pendente = false) {
 
-        $sql = "select distinct  a.id, a.numero, a.status, a.adquirido, b.id as cliente_id, b.nome, b.telefone, c.id as rifa_id, c.nome as rifa_nome from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id  where b.telefone = '$telefone' and  c.cliente_ganhador is null ";
+        $sql = "select distinct  a.id, a.numero, a.status, a.adquirido, b.id as cliente_id, b.nome, b.telefone, c.id as rifa_id, c.nome as rifa_nome from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id  where b.telefone = '$telefone' and  c.cliente_ganhador is null AND a.status = 1";
         if ( $pendente ) {
             $sql .= "  and c.id   not in (select item_rifado from comprovantes)";
         }
@@ -47,7 +47,7 @@ class Centena extends CI_Model  {
 
     function buscar_telefone($telefone, $rifa) {
 
-        $sql = "select a.numero from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id  where b.telefone = '$telefone' and  a.item_rifado = $rifa ";
+        $sql = "select a.numero from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id  where b.telefone = '$telefone' and  a.item_rifado = $rifa AND a.status in(1,2)";
 
         return $this->db->query($sql);
 
