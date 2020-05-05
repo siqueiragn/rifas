@@ -83,7 +83,7 @@
                     <span class="badge legenda-texto badge-disponivel">Disponível</span>
                     <span class="badge legenda-texto badge-comprado">Comprado</span>
                     <span class="badge legenda-texto badge-reservado">Reservado</span>
-                    <span class="badge legenda-texto badge-selecionado"">Meus números</span>
+                    <span class="badge legenda-texto badge-selecionado">Meus números</span>
 
                     <input id="meus_numeros" type="hidden">
                 </div>

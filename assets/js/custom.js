@@ -67,6 +67,9 @@ $(document).ready(function() {
         }
 
     });
+    $('.badge-reservado').html('Reservado (' + $('.reservado').length + ')');
+    $('.badge-comprado').html('Comprado (' + $('.comprado').length + ')');
+    $('.badge-disponivel').html('Disponível (' + $('.disponivel').length + ')');
 
  });
 
