@@ -41,8 +41,18 @@
 
                         <div class="col-lg-8 col-xs-8">
                             <input type="file" class="" name="logo">
-                            <input type="hidden" name="id_slider" value="<?php echo $slider->id;?>">
+                            <input type="hidden" name="id_slider" value="<?php echo $slider->num_rows() > 0 ? $slider->row()->id : null;?>">
                         </div>
+
+                        <?php if ($slider->num_rows()) { ?>
+
+                            <div class="text-center">
+                                <a target="_blank" href="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/logo_rifa.{$slider->row()->extensao}";?>">
+                                    <img width="200" class="thumbnail-wide" src="<?php echo $this->dados_globais['caminho_externo_upload'] . "{$objeto->id}/logo_rifa.{$slider->row()->extensao}";?>">
+                                </a>
+                            </div>
+                        <?php } ?>
+
 
 
                         <hr>

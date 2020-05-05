@@ -84,7 +84,7 @@ class Rifas extends My_Controller {
 
             $data['imagens'] = $this->imagem->getByItemID( $this->uri->segment(3) );
 
-            $data['slider'] = $this->imagem->buscar_slider( $this->uri->segment(3) )->row();
+            $data['slider'] = $this->imagem->buscar_slider( $this->uri->segment(3) );
 
             //$this->load->model('centena');
 
