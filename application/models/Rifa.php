@@ -20,7 +20,7 @@ class Rifa extends CI_Model  {
     }
 
     function getCarousel() {
-        return $this->db->query("select a.id, a.nome, a.descricao, a.sorteio, a.valor, b.id as id_imagem, b.extensao from item_rifado a inner join imagens b on a.id = b.item_rifado where b.id in (select min(id) from imagens group by item_rifado) and a.cliente_ganhador is null");
+        return $this->db->query("select a.id, a.nome, a.descricao, a.sorteio, a.valor, b.id as id_imagem, b.extensao from item_rifado a inner join imagem_slider b on a.id = b.item_rifado where a.cliente_ganhador is null");
     }
 
 

@@ -84,6 +84,8 @@ class Rifas extends My_Controller {
 
             $data['imagens'] = $this->imagem->getByItemID( $this->uri->segment(3) );
 
+            $data['slider'] = $this->imagem->buscar_slider( $this->uri->segment(3) )->row();
+
             //$this->load->model('centena');
 
             //$centenas = $this->centena->getByItemID( $this->uri->segment(3) );
@@ -114,6 +116,18 @@ class Rifas extends My_Controller {
 
 
                 $this->load->model('imagem');
+                if ( file_exists($_FILES['logo']['tmp_name']) ) {
+
+                    $temp = explode(".", $_FILES["logo"]["name"]); // extensão
+
+                    $this->imagem->salvar_slider( $temp[1], $idRifa );
+                    if ( !is_dir($this->dados_globais['caminho_upload'] . "$idRifa") ) {
+                        mkdir($this->dados_globais['caminho_upload'] . "$idRifa", 0777, true );
+                    }
+                    move_uploaded_file($_FLES['logo']['tmp_name'], $this->dados_globais['caminho_upload'] . "$idRifa/logo_rifa." . $temp[1] );
+
+                }
+
                 foreach ($_FILES['arquivos']['tmp_name'] as $i=>$tmp) {
 
                     if ( file_exists($tmp) ) {
@@ -152,11 +166,40 @@ class Rifas extends My_Controller {
                 $this->rifa->atualizar($rifa, $nome, $descricao, $sorteio, $valor);
 
                 $this->load->model('imagem');
-                foreach ( $this->input->post('remover_imagem') as $indice=>$id) {
 
-                    $imagem = $this->imagem->getByID($id)->row();
-                    unlink( $this->dados_globais['caminho_upload_img'] . "/rifas/{$rifa}/{$id}.{$imagem->extensao}");
-                    $this->imagem->remover($id);
+                if ( file_exists($_FILES['logo']['tmp_name']) ) {
+
+                    $logo = $this->imagem->buscar_slider($rifa);
+
+
+                    if ( $logo->num_rows() > 0 ) {
+
+                        $temp = explode(".", $_FILES["logo"]["name"]);
+
+                        $idSlider = $this->input->post('id_slider');
+                        $this->imagem->atualizar_slider( $idSlider, $temp[1], $rifa);
+
+                    } else {
+                        $temp = explode(".", $_FILES["logo"]["name"]); // extensão
+
+                        $this->imagem->salvar_slider($temp[1], $rifa);
+                    }
+
+
+                    if (!is_dir($this->dados_globais['caminho_upload'] . "$rifa")) {
+                        mkdir($this->dados_globais['caminho_upload'] . "$rifa", 0777, true);
+                    }
+                    move_uploaded_file($_FILES['logo']['tmp_name'], $this->dados_globais['caminho_upload'] . "$rifa/logo_rifa." . $temp[1]);
+
+                }
+
+                if ( $this->input->post('remover_imagem')) {
+                    foreach ( $this->input->post('remover_imagem') as $indice=>$id) {
+
+                        $imagem = $this->imagem->getByID($id)->row();
+                        unlink( $this->dados_globais['caminho_upload_img'] . "/rifas/{$rifa}/{$id}.{$imagem->extensao}");
+                        $this->imagem->remover($id);
+                    }
                 }
 
                 foreach ($_FILES['arquivos']['tmp_name'] as $i=>$tmp) {

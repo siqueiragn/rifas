@@ -39,6 +39,34 @@ class Imagem extends CI_Model  {
 
     }
 
+    function buscar_slider( $rifa ) {
+        return $this->db->select('*')
+            ->where("item_rifado = $rifa")
+            ->get('imagem_slider');
+    }
+
+    function salvar_slider( $extensao, $item_rifado ) {
+
+        $data = array(
+            'extensao'     => $extensao,
+            'item_rifado'  => $item_rifado,
+        );
+
+        $this->db->insert('imagem_slider', $data);
+
+    }
+
+    function atualizar_slider($id, $extensao, $item_rifado) {
+
+        $data = array(
+            'id'          => $id,
+            'extensao'    => $extensao,
+            'item_rifado' => $item_rifado
+        );
+        $this->db->where('id', $id);
+        $this->db->update('imagem_slider', $data);
+    }
+
     function remover( $id ) {
         $this->db->query( "delete from $this->table where id = $id" );
     }

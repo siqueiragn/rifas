@@ -32,6 +32,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <h5>Imagem Slide Principal</h5>
+                        </div>
+                        <div class="form-group">
+                            <label>Essa imagem é vista pelo usuário ao acessar a homepage do site, no slider principal. (1920x720, etc...)</label>
+                        </div>
+
+                        <div class="col-lg-8 col-xs-8">
+                            <input type="file" class="" name="logo">
+                            <input type="hidden" name="id_slider" value="<?php echo $slider->id;?>">
+                        </div>
+
+
                         <hr>
 
                         <div class="form-group">

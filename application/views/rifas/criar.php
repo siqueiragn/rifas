@@ -32,13 +32,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <h5>Imagem Slide Principal</h5>
+                        </div>
+                        <div class="form-group">
+                            <label>Essa imagem é vista pelo usuário ao acessar a homepage do site, no slider principal. (1920x720, etc...)</label>
+                        </div>
+
+                        <div class="col-lg-8 col-xs-8">
+                            <input type="file" class="" name="logo">
+                        </div>
+                        
                         <hr>
 
                         <div class="form-group">
                             <h5>Imagens</h5>
                         </div>
 
-                        <hr>
+                        <label>Abaixo, anexe as imagens que serão utilizadas para mostrar o item, recomenda-se anexar apenas imagens quadradas. (500x500, 600x600, etc...)</label>
 
                         <div class="lista-arquivos">
                             <div class="form-group" id="modelo">
