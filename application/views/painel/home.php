@@ -1,4 +1,23 @@
 
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    google.charts.load('current', {packages: ['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        // Define the chart to be drawn.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Data');
+        data.addColumn('number', 'Quantidade');
+        data.addRows(JSON.parse('<?php echo ($dados);?>'));
+
+        // Instantiate and draw the chart.
+        var chart = new google.visualization.ColumnChart(document.getElementById('myPieChart'));
+        var options = {'title':'Acessos por Dia'};
+        chart.draw(data, options);
+    }
+</script>
 
     <!-- Home Page About Section Begin -->
     <section class="homepage-about spad section">
@@ -10,6 +29,7 @@
                         <div class="form-group">
                             <label for="">Bem-vindo ao seu painel, <?php echo $this->nativesession->get('usuario');?>!</label>
                         </div>
+                        <div id="myPieChart"/>
 
                     </div>
 

@@ -32,6 +32,8 @@
 <script src="<?php echo site_url('/assets/js/main.js');?>"></script>
 <script src="<?php echo site_url('/assets/addons/ckeditor/ckeditor.js');?>"></script>
 <script>CKEDITOR.replace( 'descricao' );</script>
+
+
 </body>
 
 </html>

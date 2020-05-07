@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/style.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/slides.css');?>" type="text/css">
 
+    
 </head>
 
 <body>

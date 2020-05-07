@@ -56,6 +56,25 @@
             </div>
         </div>
     </div>
+
+    <?php
+    $contador = 0;
+    $arquivo = $this->dados_globais['caminho_logs'] . date('Ymd') . ".txt";
+    if ( file_exists( $arquivo )) {
+        $handle = fopen($arquivo, 'r+');
+        $data = fread($handle, 512);
+    } else {
+        $handle = fopen($arquivo, 'w');
+        $data = 0;
+    }
+
+    $contador = $data + 1;
+
+    fseek($handle, 0);
+    fwrite($handle, $contador);
+    fclose($handle);
+
+    ?>
 </footer>
 <!-- Footer Section End -->
 
