@@ -26,7 +26,7 @@
             <label class="payment-method-text">Banco do Brasil - 001</label>
             <label class="payment-method-text">Titular: Lucas Bione Cavalcante</label>
             <label class="payment-method-text">CPF: 082.527.624-17</label>
-            <label class="payment-method-text">Agência: 1228-2</label>
+            <label class="payment-method-text">Agência: 1128-2</label>
             <label class="payment-method-text">Conta: 111025-0</label>
             <label class="payment-method-text">Tipo: Conta Corrente</label>
         </div>

@@ -138,7 +138,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-xs-12">
-                            <input type="text" name="nome_completo" class="form-control input-sm" tabindex="1">
+                            <input type="text" name="nome_completo" class="form-control input-sm" tabindex="1" required>
                         </div>
                     </div>
                     <div class="row">
@@ -146,7 +146,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-xs-12">
-                            <input type="text" name="telefone" class="form-control mascara-telefone input-sm" tabindex="1">
+                            <input type="text" name="telefone" class="form-control mascara-telefone input-sm" tabindex="1" required>
                         </div>
                     </div>
                 </div>
