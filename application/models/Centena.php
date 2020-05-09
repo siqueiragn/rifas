@@ -72,7 +72,7 @@ class Centena extends CI_Model  {
 
 
     function verificar_disponibilidade($rifa, $numero) {
-        return $this->db->query("SELECT * FROM $this->table WHERE item_rifado = $rifa and numero = $numero AND status <> 2");
+        return $this->db->query("SELECT * FROM centenas WHERE item_rifado = $rifa and numero = $numero AND status in (1,2)");
     }
 
     function reservar( $numero, $cliente, $item_rifado, $adquirido ) {

@@ -57,7 +57,7 @@ class Painel extends My_Controller {
                 $nome = substr($caminho[1], 6, 2);
                 $nome .= '/' . substr($caminho[1], 4, 2);
                 $nome .= '/' . substr($caminho[1], 0, 4);
-                if ( $nome != 'ht/x./inde') 
+                if ( $nome != 'ht/x./inde')
                     @$dados[] = array($nome, (1 * fread($handle, 512)) );
                 fclose($handle);
             }
