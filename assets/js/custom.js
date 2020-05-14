@@ -207,3 +207,32 @@ function marcar_numeros( numeros ) {
     });
 
 }
+
+function validar( form ) {
+
+    erros = "";
+
+    if ( ($("#nome_form").val()).indexOf(' ') == 0 ) {
+        erros += "<br>Informe pelo menos um sobrenome (separado por espaço)";
+    } else {
+
+        nome = ($("#nome_form").val()).split(" ");
+        if (nome.length < 2 ) {
+            erros += "<br>O nome deve conter um sobrenome";
+        } else {
+            if (nome[0].length < 3) {
+                erros += "<br>O primeiro nome deve conter no mínimo três letras";
+            }
+            if (nome[1].length < 3) {
+                erros += "<br>O segundo nome deve conter no mínimo três letras";
+            }
+        }
+    }
+
+    if ( erros == "") {
+       $(form).submit();
+    }  else {
+        $('#erros-submit').html(erros + "<br>");
+    }
+
+}

@@ -118,7 +118,7 @@
     <!-- Home Page About Section End -->
 
 
-    <form action="<?php echo site_url($this->router->class . '/metodoPagamento/'. $objeto->id);?>" method="POST">
+    <form action="<?php echo site_url($this->router->class . '/metodoPagamento/'. $objeto->id);?>" id="form"  method="POST">
     <div class="modal fade" id="modal_compra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -129,6 +129,10 @@
                     </button>
                 </div>
                 <div class="modal-body">
+
+                    <div class="row">
+                        <label style="color: red;" class="col-lg-12 col-xs-12" id="erros-submit"></label>
+                    </div>
                     <div class="row">
                         <label class="col-lg-12 col-xs-12 display-numeros" for=""></label>
                         <input type="hidden" name="numeros" id="numeros">
@@ -138,7 +142,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-xs-12">
-                            <input type="text" name="nome_completo" class="form-control input-sm" tabindex="1" required>
+                            <input type="text" name="nome_completo" id="nome_form" class="form-control input-sm" tabindex="1" required>
                         </div>
                     </div>
                     <div class="row">
@@ -151,7 +155,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Comprar</button>
+                    <button type="button" onclick="validar($('#form'))" class="btn btn-primary">Comprar</button>
                 </div>
             </div>
         </div>
