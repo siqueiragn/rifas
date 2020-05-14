@@ -90,9 +90,9 @@
             </div>
         <br>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1 col-xs-10 offset-lg-1 text-center">
+                <div class="col-lg-12 text-center">
                     <div id="erro-buscar" style="100%"></div>
-                    <div class="noselect col-lg-8 offset-lg-2 col-xs-8 offset-xs-2">
+                    <div class="noselect col-lg-12">
 
                     <?php $cont = 0; for( $i = 0; $i < 1000; $i++) { ?>
 

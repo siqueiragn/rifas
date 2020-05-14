@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<html lang="zxx">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Rifas do Sertão">
-    <meta name="keywords" content="rifas, sorteio, premios">
+    <meta name="description" content="Rifas do Sertão é um site para venda de números de participação em sorteios.">
+    <meta name="keywords" content="rifas, sorteio, premios, sertão, sertao, numeros, rifas, do">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rifas do Sertão</title>
 
     <!-- Google Font -->
@@ -42,7 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul>
                     <li><a href="<?php echo site_url();?>">Home</a></li>
                     <li><a href="<?php echo site_url('rifas/listar');?>">Sorteios</a></li>
-                    <li><a href="<?php echo site_url('home/pagamentos');?>">Pagamentos</a></li>
+                    <li><a href="<?php echo site_url('pagamentos');?>">Pagamentos</a></li>
+                    <li><a href="<?php echo site_url('contato');?>">Contato</a></li>
                  </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>

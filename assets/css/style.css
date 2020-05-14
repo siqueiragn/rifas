@@ -1147,8 +1147,8 @@ ol {
 }
 
 .payment-method {
-	width: 250px;
-	height: 450px;
+	width: 200px;
+	height: 400px;
 	text-align: center;
 	font-size: 100%;
 	display: inline-block;
@@ -1156,8 +1156,8 @@ ol {
 }
 
 .payment-method-img {
-	width: 250px;
-	height: 150px;
+	width: 200px;
+	height: 100px;
 	text-align: center;
 	font-size: 100%;
 	display: inline-block;
@@ -1166,6 +1166,7 @@ ol {
 .payment-method-text{
 	display: block;
 	text-align: left;
+	font-size: 85%;
 }
 
 .total{
@@ -1225,6 +1226,18 @@ ol {
 	border-color: green
 }
 
+.btn-telegram {
+	color: white;
+	background-color: #32afed;
+	border-color: 32afed;
+}
+.btn-telegram:hover {
+	color: white;
+	background-color: #32afed;
+	border-color: 32afed;
+	opacity: 0.5%;
+}
+
 .btn-custom:hover {
 	color: white;
 	background-color: limegreen;
@@ -1268,4 +1281,8 @@ ol {
 
 .imagem-painel{
 	display: inline-table;
+}
+
+.contact-item {
+	margin: 15px;
 }

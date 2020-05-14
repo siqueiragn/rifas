@@ -32,7 +32,7 @@
             <div class="col-lg-4">
                 <div class="footer-item text-center">
                     <ul>
-                        <li><i class="fa fa-instagram"></i> <a class="custom-link" href="www.instagram.com/rifassdosertao"><?php echo $this->dados_globais['instagram_formatado'];?></a></li>
+                        <li><i class="fa fa-instagram"></i> <a class="custom-link" href="https://www.instagram.com/rifassdosertao"><?php echo $this->dados_globais['instagram_formatado'];?></a></li>
                     </ul>
                 </div>
             </div>

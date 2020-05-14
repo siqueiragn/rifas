@@ -11,6 +11,7 @@
             <label class="payment-method-text">Agência: 0001</label>
             <label class="payment-method-text">Conta: 79622950-5</label>
             <label class="payment-method-text">Tipo: NuConta</label>
+            <label class="payment-method-text">&nbsp;</label>
         </div>
         <div class="payment-method">
             <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/inter.png";?>" >
@@ -19,6 +20,7 @@
             <label class="payment-method-text">CPF: 082.527.624-17</label>
             <label class="payment-method-text">Agência: 0001</label>
             <label class="payment-method-text">Conta: 3804963-5</label>
+            <label class="payment-method-text">&nbsp;</label>
             <label class="payment-method-text">&nbsp;</label>
         </div>
         <div class="payment-method">
@@ -29,6 +31,7 @@
             <label class="payment-method-text">Agência: 1128-2</label>
             <label class="payment-method-text">Conta: 111025-0</label>
             <label class="payment-method-text">Tipo: Conta Corrente</label>
+            <label class="payment-method-text">&nbsp;</label>
         </div>
         <div class="payment-method">
             <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/bradesco.jpg";?>" >
@@ -38,6 +41,7 @@
             <label class="payment-method-text">Agência: 06033</label>
             <label class="payment-method-text">Conta: 9531-1</label>
             <label class="payment-method-text">Tipo: Conta Corrente</label>
+            <label class="payment-method-text">&nbsp;</label>
         </div>
         <div class="payment-method">
             <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/santander.png";?>" >
@@ -47,6 +51,7 @@
             <label class="payment-method-text">Agência: 4008</label>
             <label class="payment-method-text">Conta: 1067674-9</label>
             <label class="payment-method-text">Tipo: Conta Corrente</label>
+            <label class="payment-method-text">&nbsp;</label>
         </div>
         <div class="payment-method">
             <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/itau.jpg";?>" >
@@ -56,6 +61,17 @@
             <label class="payment-method-text">Agência: 8290</label>
             <label class="payment-method-text">Conta: 53074-3</label>
             <label class="payment-method-text">Tipo: Conta Corrente</label>
+            <label class="payment-method-text">&nbsp;</label>
+        </div>
+        <div class="payment-method">
+            <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/caixa.jpg";?>" >
+            <label class="payment-method-text">Caixa - 104</label>
+            <label class="payment-method-text">Titular: Lucas Bione Cavalcante</label>
+            <label class="payment-method-text">CPF: 082.527.624-17</label>
+            <label class="payment-method-text">Agência: 3491</label>
+            <label class="payment-method-text">Conta: 00022363-9</label>
+            <label class="payment-method-text">Tipo: Conta Corrente</label>
+            <label class="payment-method-text">Operação: 13</label>
         </div>
         <div class="payment-method">
             <img class="payment-method-img" src="<?php echo $this->dados_globais['caminho_externo_img'] . "banks/picpay.png";?>" >

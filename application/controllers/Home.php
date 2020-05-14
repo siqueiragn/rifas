@@ -24,6 +24,14 @@ class Home extends My_Controller {
 
     }
 
+	public function contato() {
+
+        $this->load->view('estruturas/menu');
+        $this->load->view($this->router->class . '/contato');
+        $this->load->view('estruturas/footer');
+
+    }
+
     public function buscar_numeros() {
 
 	    if ( $this->input->post()) {
