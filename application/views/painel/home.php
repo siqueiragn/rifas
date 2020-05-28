@@ -14,7 +14,7 @@
 
         // Instantiate and draw the chart.
         var chart = new google.visualization.ColumnChart(document.getElementById('myPieChart'));
-        var options = {'title':'Acessos por Dia'};
+        var options = {'title':'Acessos por Dia', 'legend':'bottom'};
         chart.draw(data, options);
     }
 </script>
