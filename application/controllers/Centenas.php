@@ -16,16 +16,22 @@ class Centenas extends My_Controller {
 
             $this->load->model('centena');
 
-            $cliente    = $this->input->get('nome');
-            $telefone   = preg_replace("/[^0-9]/", '', $this->input->get('telefone'));
-            $status     = $this->input->get('status') ? $this->input->get('status') : 1;
+            $id         = $this->uri->segment(3);
 
-            $data['objetos'] = $this->centena->getAllJoinClient($cliente, $telefone, $status)->result();
+            if ( is_numeric($id) ) {
+                $cliente = $this->input->get('nome');
+                $telefone = preg_replace("/[^0-9]/", '', $this->input->get('telefone'));
+                $status = $this->input->get('status') ? $this->input->get('status') : 1;
 
-            $this->load->view('estruturas/menu_adm');
-            $this->load->view($this->router->class . '/listar', $data);
-            $this->load->view('estruturas/footer_adm');
+                $data['objetos'] = $this->centena->getAllJoinClient($id, $cliente, $telefone, $status)->result();
 
+                $this->load->view('estruturas/menu_adm');
+                $this->load->view($this->router->class . '/listar', $data);
+                $this->load->view('estruturas/footer_adm');
+
+            } else {
+                redirect('/painel');
+            }
         }
 
     }

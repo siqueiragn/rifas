@@ -18,8 +18,8 @@ class Centena extends CI_Model  {
 
     }
 
-    function getAllJoinClient( $cliente = null, $telefone = null, $status = null) {
-        $sql = "SELECT DISTINCT d.cliente AS comprovante, a.id, a.numero, a.status, a.adquirido, b.id AS cliente_id, b.nome, b.telefone, c.id as rifa_id, c.nome as rifa_nome from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id left join comprovantes d on d.cliente = b.id  where c.cliente_ganhador is null";
+    function getAllJoinClient( $id, $cliente = null, $telefone = null, $status = null) {
+        $sql = "SELECT DISTINCT d.cliente AS comprovante, a.id, a.numero, a.status, a.adquirido, b.id AS cliente_id, b.nome, b.telefone, c.id as rifa_id, c.nome as rifa_nome from centenas a left join clientes b on a.cliente = b.id left join item_rifado c on a.item_rifado = c.id left join comprovantes d on d.cliente = b.id  where c.id = $id";
 
         if ( $cliente != null ) {
             $sql .= " AND LOWER(b.nome) LIKE LOWER('%$cliente%') ";
@@ -73,6 +73,10 @@ class Centena extends CI_Model  {
 
     function verificar_disponibilidade($rifa, $numero) {
         return $this->db->query("SELECT * FROM centenas WHERE item_rifado = $rifa and numero = $numero AND status in (1,2)");
+    }
+
+    function verificar_pagos($rifa, $numero) {
+        return $this->db->query("SELECT * FROM centenas WHERE item_rifado = $rifa and numero = $numero AND status = 2");
     }
 
     function reservar( $numero, $cliente, $item_rifado, $adquirido ) {

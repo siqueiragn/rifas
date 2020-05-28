@@ -151,6 +151,65 @@ class Rifas extends My_Controller {
 
     }
 
+    public function sortear()
+    {
+
+        if ($this->nativesession->get('autenticado')) {
+
+            $this->load->model('rifa');
+            $data['objeto'] = $this->rifa->getByID( $this->uri->segment(3) )->row();
+
+
+            $this->load->view('estruturas/menu_adm');
+            $this->load->view($this->router->class . '/sortear', $data);
+            $this->load->view('estruturas/footer_adm');
+
+        }
+
+    }
+
+    public function consultar_centena() {
+
+        if ($this->nativesession->get('autenticado') && $this->input->get()) {
+
+            $centena = $this->input->get('centena');
+            $sorteio = $this->input->get('sorteio');
+
+            $this->load->model('centena');
+
+            $resultado = $this->centena->verificar_pagos( $sorteio, $centena );
+            if ( $resultado->num_rows() == 0) {
+
+                echo "N{QUEBRA}Essa centena não foi adquirida ou o pagamento não foi confirmado!";
+
+            } else {
+                $this->load->model('cliente');
+                $numero = $resultado->row();
+                $cliente = $this->cliente->getByID($numero->cliente)->row();
+
+                echo "S{QUEBRA}$cliente->nome{QUEBRA}$cliente->telefone{QUEBRA}$cliente->id{QUEBRA}$numero->id";
+            }
+        }
+
+    }
+
+    public function db_sortear() {
+
+        if ($this->nativesession->get('autenticado') && $this->input->post()) {
+
+            $centena    = $this->input->post('centena');
+            $sorteio    = $this->input->post('sorteio');
+            $cliente    = $this->input->post('cliente_id');
+            $centena_id = $this->input->post('centena_id');
+
+            $this->load->model('rifa');
+            $this->rifa->atualizar_sorteio( $sorteio, $centena_id, $cliente );
+            redirect( "rifas/consultar/$sorteio" );
+        }
+        redirect( );
+
+    }
+
     public function db_editar() {
 
         if ( $this->nativesession->get('autenticado') ) {

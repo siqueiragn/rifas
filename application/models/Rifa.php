@@ -57,6 +57,19 @@ class Rifa extends CI_Model  {
         $this->db->update($this->table, $data);
     }
 
+
+
+    function atualizar_sorteio( $sorteio, $centena, $cliente ) {
+
+        $data = array(
+            'centena'          => $centena,
+            'cliente_ganhador' => $cliente,
+        );
+
+        $this->db->where('id', $sorteio);
+        $this->db->update($this->table, $data);
+    }
+
 }
 
 ?>

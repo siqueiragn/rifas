@@ -44,7 +44,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul>
                     <li><a href="<?php echo site_url();?>">Voltar ao Site</a></li>
                     <li><a href="<?php echo site_url( 'painel/rifas');?>">Gerenciar Sorteios</a></li>
-                    <li><a href="<?php echo site_url( 'centenas/listar');?>">Gerenciar Números</a></li>
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>

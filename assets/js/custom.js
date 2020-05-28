@@ -197,6 +197,53 @@ function buscar_numeros_consulta( url ){
 
 }
 
+function verificar_centena( url, sorteio ){
+
+    centena = ($('#centena').val());
+
+    if ( centena.length == 3 ) {
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                centena : centena, sorteio : sorteio,
+             },
+            success: function (retorno) {
+
+                ret = retorno.split("{QUEBRA}");
+                if ( ret[0] == 'S' ) {
+                    $("#nome").val(ret[1]);
+                    $('#telefone').val(ret[2]);
+                    $('#cliente_id').val(ret[3]);
+                    $('#centena_id').val(ret[4]);
+                    $('.label-retorno').removeClass('hidden');
+                    $('#area-retorno').html('Dados do vencedor: ');
+                } else {
+                    $("#nome").val('');
+                    $('#telefone').val('');
+                    $('#cliente_id').val('');
+                    $('#centena_id').val('');
+                    $('.label-retorno').addClass('hidden');
+                    $('#area-retorno').html(ret[1]);
+                }
+
+                $('.mascara-telefone').mask('(00) 0 0000-0000');
+
+
+            },
+            error: function (retorno) {
+
+                $("#erro-label").html('Ocorreu um problema ao realizar a operação!');
+             }
+        });
+
+    } else {
+        $("#erro-label").html('Preencha uma centena com três digitos! (Ex: se for 65, use 065)');
+    }
+
+}
+
 function marcar_numeros( numeros ) {
 
     $('.numero-sorteio').addClass('hidden');

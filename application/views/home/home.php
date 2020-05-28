@@ -33,7 +33,7 @@
             </div>
 
             <?php } else { ?>
-                <h5 class="text-center">Sem sorteios disponíveis!</h5>
+                <h5 style="margin: auto; padding: 300px;" class="text-center">Sem sorteios disponíveis!</h5>
             <?php } ?>
         </div>
     </section>

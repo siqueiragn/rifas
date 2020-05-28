@@ -21,6 +21,8 @@
 
                         <tr>
                             <td>
+                                <a href="<?php echo site_url('/rifas/sortear/' . $objeto->id);?>" class="btn-info btn-sm sm-padding">Sortear</a>
+                                <a href="<?php echo site_url('/centenas/listar/' . $objeto->id);?>" class="btn-success btn-sm sm-padding">Ver números</a>
                                 <a href="<?php echo site_url('/rifas/consultar/' . $objeto->id);?>" class="btn-success btn-sm sm-padding">Consultar</a>
                                 <a href="<?php echo site_url('/rifas/editar/' . $objeto->id);?>" class="btn-danger btn-sm sm-padding">Editar</a>
                             </td>
