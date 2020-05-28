@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Rifas do Sertão é um site para venda de números de participação em sorteios.">
-    <meta name="keywords" content="rifas, sorteio, premios, sertão, sertao, numeros, rifas, do">
+    <meta name="description" content="Rifas do Sertão é um site para venda de números de participação em sorteios. Compre números e concorra a prêmios!">
+    <meta name="keywords" content="rifas, sorteio, premios, sertao, numeros">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rifas do Sertão</title>
 
@@ -16,12 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Css Styles -->
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/bootstrap.min.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/font-awesome.min.css');?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo site_url('/assets/css/flaticon.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/owl.carousel.min.css');?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo site_url('/assets/css/jquery-ui.min.css');?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo site_url('/assets/css/nice-select.css');?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo site_url('/assets/css/magnific-popup.css');?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo site_url('/assets/css/slicknav.min.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/style.css');?>" type="text/css">
     <link rel="stylesheet" href="<?php echo site_url('/assets/css/slides.css');?>" type="text/css">
 </head>
