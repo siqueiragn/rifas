@@ -41,9 +41,11 @@ class Centenas extends My_Controller {
         if ( $this->nativesession->get('autenticado') ) {
 
             $this->load->model('centena');
+
+            $centena = $this->centena->getByID($this->uri->segment(3))->row();
             $this->centena->aprovar($this->uri->segment(3));
 
-            redirect( $this->router->class . '/listar');
+            redirect( $this->router->class . '/listar/' . $centena->item_rifado );
         } else {
             redirect();
         }
@@ -54,9 +56,11 @@ class Centenas extends My_Controller {
         if ( $this->nativesession->get('autenticado') ) {
 
             $this->load->model('centena');
+
+            $centena = $this->centena->getByID($this->uri->segment(3))->row();
             $this->centena->recusar($this->uri->segment(3));
 
-            redirect( $this->router->class . '/listar');
+            redirect( $this->router->class . '/listar/' . $centena->item_rifado );
         } else {
             redirect();
         }
