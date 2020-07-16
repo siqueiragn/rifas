@@ -8,7 +8,7 @@ class Home extends My_Controller {
 	{
 
         $this->load->model('rifa');
-        $data['objetos'] = $this->rifa->getCarousel( );
+        $data['objetos'] = $this->rifa->getCarousel( true );
 
         $this->load->view('estruturas/menu');
 		$this->load->view($this->router->class . '/home', $data);

@@ -93,8 +93,8 @@
                 <div class="col-lg-12 text-center">
                     <div id="erro-buscar" style="100%"></div>
                     <div class="noselect col-lg-12">
-
-                    <?php $cont = 0; for( $i = 0; $i < 1000; $i++) { ?>
+                    <?php $qtdN = $objeto->qtd_centena ? $objeto->qtd_centena : 1000; ?>
+                    <?php $cont = 0; for( $i = 0; $i < $qtdN; $i++) { ?>
 
                         <?php if ( in_array($i, $comprados ) ) {
                             echo "<div data-toggle='popover' data-trigger='hover' data-content='{$textos[$i]}' class='" . ($marcar ? "numero-sorteio" : "numero-sorteado") . " noselect comprado' id='numero-$i'>" . str_pad($i, 3, '00', STR_PAD_LEFT) . "</div>";

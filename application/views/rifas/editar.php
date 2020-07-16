@@ -14,6 +14,12 @@
                             <input type="text" class="form-control input-sm" tabindex="0" name="nome" id="nome" value="<?php echo $objeto->nome;?>">
                         </div>
                         <div class="form-group">
+                            <label for="">Número de Centenas a serem sorteadas (padrão: 1000)</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-sm mascara-numero" tabindex="0" name="qtd_centenas" id="qtd_centenas" value="<?php echo $objeto->qtd_centena;?>">
+                        </div>
+                        <div class="form-group">
                             <label for="">Descrição</label>
                         </div>
                         <div class="form-group">

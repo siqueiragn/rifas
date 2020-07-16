@@ -15,7 +15,7 @@ class Rifas extends My_Controller {
 
         $this->load->model('rifa');
 
-        $data['objetos'] = $this->rifa->getAll()->result();
+        $data['objetos'] = $this->rifa->getAll( true )->result();
 
         $this->load->view('estruturas/menu');
         $this->load->view($this->router->class . '/listar', $data);
@@ -26,39 +26,43 @@ class Rifas extends My_Controller {
 
         $this->load->model('rifa');
 
-        $data['objeto'] = $this->rifa->getByID( $this->uri->segment(3) )->row();
+        $data['objeto'] = $this->rifa->getByID( $this->uri->segment(3), true )->row();
 
-        $this->load->model('centena');
+        if ( $data['objeto'] ) {
 
-        $centenas = $this->centena->getByItemID( $this->uri->segment(3) );
+            $this->load->model('centena');
 
-        $data['reservados'] = array();
-        $data['comprados'] = array();
+            $centenas = $this->centena->getByItemID($this->uri->segment(3));
 
-        if ( $centenas->num_rows() > 0 ) {
+            $data['reservados'] = array();
+            $data['comprados'] = array();
 
-            foreach ($centenas->result() as $indice=>$centena) {
+            if ($centenas->num_rows() > 0) {
 
-                if ( $centena->status == 1) {
-                    $data['reservados'][] = $centena->numero;
-                    $data['textos'][$centena->numero] = 'Reservado por ' . $centena->nome;
-                } else if ( $centena->status == 2) {
-                    $data['comprados'][] = $centena->numero;
-                    $data['textos'][$centena->numero] = 'Comprado por ' . $centena->nome;
+                foreach ($centenas->result() as $indice => $centena) {
 
-                } else {
-                     continue;
+                    if ($centena->status == 1) {
+                        $data['reservados'][] = $centena->numero;
+                        $data['textos'][$centena->numero] = 'Reservado por ' . $centena->nome;
+                    } else if ($centena->status == 2) {
+                        $data['comprados'][] = $centena->numero;
+                        $data['textos'][$centena->numero] = 'Comprado por ' . $centena->nome;
+
+                    } else {
+                        continue;
+                    }
+
                 }
 
             }
 
+            $this->load->view('estruturas/menu');
+            $this->load->view($this->router->class . '/consultar', $data);
+            $this->load->view('home/pagamentos');
+            $this->load->view('estruturas/footer');
+        } else {
+            redirect();
         }
-
-
-        $this->load->view('estruturas/menu');
-        $this->load->view($this->router->class . '/consultar', $data);
-        $this->load->view( 'home/pagamentos');
-        $this->load->view('estruturas/footer');
     }
 
     public function criar() {
@@ -104,14 +108,15 @@ class Rifas extends My_Controller {
 	    if ( $this->nativesession->get('autenticado') ) {
             if ($this->input->post()) {
 
-                $nome      = $this->input->post('nome');
-                $descricao = $this->input->post('descricao');
-                $sorteio   = $this->input->post('sorteio');
-                $valor     = $this->input->post('valor');
+                $nome        = $this->input->post('nome');
+                $descricao   = $this->input->post('descricao');
+                $sorteio     = $this->input->post('sorteio');
+                $valor       = $this->input->post('valor');
+                $qtd_centena = $this->input->post('qtd_centenas');
 
 
                 $this->load->model('rifa');
-                $this->rifa->salvar($nome, $descricao, $sorteio, $valor);
+                $this->rifa->salvar($nome, $descricao, $sorteio, $valor, $qtd_centena);
                 $idRifa = $this->db->insert_id();
 
 
@@ -215,14 +220,16 @@ class Rifas extends My_Controller {
         if ( $this->nativesession->get('autenticado') ) {
 
             if ($this->input->post()) {
-                $rifa      = $this->input->get('id');
-                $nome      = $this->input->post('nome');
-                $descricao = $this->input->post('descricao');
-                $sorteio   = $this->input->post('sorteio');
-                $valor     = $this->input->post('valor');
+                $rifa        = $this->input->get('id');
+                $nome        = $this->input->post('nome');
+                $descricao   = $this->input->post('descricao');
+                $sorteio     = $this->input->post('sorteio');
+                $valor       = $this->input->post('valor');
+                $qtd_centena = $this->input->post('qtd_centenas');
+
 
                 $this->load->model('rifa');
-                $this->rifa->atualizar($rifa, $nome, $descricao, $sorteio, $valor);
+                $this->rifa->atualizar($rifa, $nome, $descricao, $sorteio, $valor, $qtd_centena);
 
                 $this->load->model('imagem');
 
@@ -353,6 +360,34 @@ class Rifas extends My_Controller {
 
         }
 
+    }
+
+    public function habilitar() {
+
+        if ( $this->nativesession->get('autenticado') ) {
+
+            $this->load->model('rifa');
+
+            $this->rifa->alterar_status($this->uri->segment(3), 1);
+
+            redirect( 'painel/rifas/'  );
+        } else {
+            redirect();
+        }
+    }
+
+    public function desativar() {
+
+        if ( $this->nativesession->get('autenticado') ) {
+
+            $this->load->model('rifa');
+
+            $this->rifa->alterar_status($this->uri->segment(3), 0);
+
+            redirect( 'painel/rifas/' );
+        } else {
+            redirect();
+        }
     }
 
     public function enviar_comprovantes() {

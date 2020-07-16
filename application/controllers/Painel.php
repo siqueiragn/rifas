@@ -79,8 +79,12 @@ class Painel extends My_Controller {
 
             $this->load->model('rifa');
 
-            $data['objetos'] = $this->rifa->getAll()->result();
-
+            if ( $this->input->get() ) {
+                $status = $this->input->get('status');
+                $data['objetos'] = $this->rifa->getByStatus($status)->result();
+            } else {
+                $data['objetos'] = $this->rifa->getByStatus(1)->result();
+            }
 
             $this->load->view('estruturas/menu_adm', $data);
             $this->load->view($this->router->class . '/rifas');
