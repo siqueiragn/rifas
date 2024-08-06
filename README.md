@@ -1,2 +1,2 @@
 # rifasdosertao
-projeto para venda de números de rifa online
+projeto para locação de números de sorteios
